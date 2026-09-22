@@ -9,9 +9,14 @@
 
 ## Quiénes somos
 
-[COMPLETAR: presentación de la empresa — nombre, años en el rubro, plantas/clientes
-que ya atendemos en el cordón industrial, habilitaciones (RNE/RNPA, bromatología),
-certificaciones si las hay.]
+**Good Food S.A.** — hace 10 años damos servicio de comedor y viandas a empresas
+del cordón industrial. Cocinamos con tecnología de última generación en nuestras
+plantas propias de **Rosario, Arroyo Seco y La Plata (Buenos Aires)**; el servicio
+está a cargo de **nutricionistas** y montamos comedores incluso en espacios
+reducidos. Hoy comen con nosotros los equipos de **Sidersa, Inbelt, Pecam, Dinale
+y el Policlínico Unión**, entre otros.
+
+[COMPLETAR: habilitaciones (RNE/RNPA, bromatología) y certificaciones si las hay.]
 
 ## Qué entendemos que necesitan
 

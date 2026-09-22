@@ -541,9 +541,10 @@ const CLIENTES_REF="Sidersa, Inbelt, Pecam, Dinale y el Policlínico Unión";
 const BAJA="(Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)";
 function miEmpresa(){ return (st.perfil&&st.perfil.empresa)||"Good Food S.A."; }
 function miNombre(){ return (st.perfil&&st.perfil.nombre)||"[Tu nombre]"; }
+const PLANTAS="plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires)";
 function firma(){
   const p=st.perfil||{};
-  return miNombre()+"\n"+miEmpresa()+" — comedores y viandas industriales"+(p.tel?"\n"+p.tel:"")+(p.web?" · "+p.web:"");
+  return miNombre()+"\n"+miEmpresa()+" — comedores y viandas industriales\nRosario · Arroyo Seco · La Plata (Bs. As.)"+(p.tel?" · "+p.tel:"")+(p.web?" · "+p.web:"");
 }
 function lineaArea(c){
   if(!c) return "";
@@ -567,37 +568,37 @@ function cuerpoMail(e){
     if(v==="C"){
       t+="Hola "+pilaDe(c.nombre)+": le propongo algo simple.\n\n";
       t+="Coordinamos una degustación sin costo para la gente que usted elija: prueban nuestras viandas y el menú de comedor, y con eso decide si vale la pena hablar de números.\n\n";
-      t+="Somos "+miEmpresa()+": hace 10 años cocinamos para empresas del cordón industrial ("+CLIENTES_REF+", entre otras), con cocina centralizada, servicio a cargo de nutricionistas y entregas por turno.\n\n";
+      t+="Somos "+miEmpresa()+": hace 10 años cocinamos para empresas del cordón industrial ("+CLIENTES_REF+", entre otras), con "+PLANTAS+", servicio a cargo de nutricionistas y entregas por turno.\n\n";
       t+="¿Qué día le queda cómodo? Con una fecha me arreglo.\n\n";
     }else if(v==="B"){
       t+="Hola "+pilaDe(c.nombre)+", ¿cómo le va?\n\n";
       t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años cocinamos para plantas del cordón industrial ("+zonaDe(e.localidad)+").\n\n";
       t+=lineaArea(c);
-      t+="Lo que nos diferencia, en corto: cocina centralizada con tecnología de última generación, menús diseñados y supervisados por nutricionistas, dietas especiales sin trámite extra y entregas por turno (también nocturnos). Y si no hay lugar para un comedor, lo resolvemos: los montamos en espacios reducidos.\n\n";
+      t+="Lo que nos diferencia, en corto: "+PLANTAS+" con tecnología de última generación, menús diseñados y supervisados por nutricionistas, dietas especiales sin trámite extra y entregas por turno (también nocturnos). Y si no hay lugar para un comedor, lo resolvemos: los montamos en espacios reducidos.\n\n";
       t+="¿Le sirve que le acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.\n\n";
     }else{
       t+="Hola "+pilaDe(c.nombre)+", ¿cómo le va?\n\n";
-      t+="Soy "+miNombre()+", de "+miEmpresa()+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
+      t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
       t+=lineaArea(c);
-      t+="Cocinamos en una planta centralizada con tecnología de última generación, el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.\n\n";
+      t+="Cocinamos con tecnología de última generación en "+PLANTAS+"; el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.\n\n";
       t+="¿Le sirve que le acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.\n\n";
     }
     t+=BAJA+"\n\nSaludos,\n"+firma();
   }else{
     if(v==="C"){
       t+="Hola, buen día.\n\n";
-      t+="Somos "+miEmpresa()+" (hace 10 años damos comedor y viandas en el cordón industrial) y queremos ofrecerle a "+e.nombre+" una degustación sin costo, para que el personal pruebe el servicio antes de hablar de números.\n\n";
+      t+="Somos "+miEmpresa()+" (hace 10 años damos comedor y viandas en el cordón industrial, con "+PLANTAS+") y queremos ofrecerle a "+e.nombre+" una degustación sin costo, para que el personal pruebe el servicio antes de hablar de números.\n\n";
       t+="¿Me indican con quién coordinarla (Compras o Recursos Humanos), o le reenvían este correo?\n\n";
     }else if(v==="B"){
       t+="Hola, buen día.\n\n";
       t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años cocinamos para plantas del cordón industrial ("+zonaDe(e.localidad)+").\n\n";
       t+="¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?\n\n";
-      t+="Para esa persona, en dos líneas: cocina centralizada con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno (también nocturnos); montamos comedores incluso en espacios reducidos. Con gusto acercamos números a medida y una degustación sin compromiso.\n\n";
+      t+="Para esa persona, en dos líneas: "+PLANTAS+" con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno (también nocturnos); montamos comedores incluso en espacios reducidos. Con gusto acercamos números a medida y una degustación sin compromiso.\n\n";
     }else{
       t+="Hola, buen día.\n\n";
       t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años damos comedor y viandas a empresas del cordón industrial ("+CLIENTES_REF+", entre otras).\n\n";
       t+="¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?\n\n";
-      t+="Para esa persona, en dos líneas: cocina centralizada con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno; montamos comedores incluso en espacios reducidos. Con gusto acercamos una propuesta y una degustación sin compromiso.\n\n";
+      t+="Para esa persona, en dos líneas: "+PLANTAS+" con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno; montamos comedores incluso en espacios reducidos. Con gusto acercamos una propuesta y una degustación sin compromiso.\n\n";
     }
     t+=BAJA+"\n\n¡Muchas gracias!\n\n"+firma();
   }
@@ -610,7 +611,7 @@ function notaLinkedIn(e){
   return t;
 }
 function msgWhatsApp(e){
-  return "Hola, ¿qué tal? Soy "+miNombre()+", de Good Food: hace 10 años hacemos comedor y viandas para empresas del cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). ¿Me indicás quién gestiona la alimentación del personal en "+e.nombre+"? Quisiéramos acercarles una propuesta y una degustación sin costo. ¡Gracias!";
+  return "Hola, ¿qué tal? Soy "+miNombre()+", de Good Food (plantas en Rosario, Arroyo Seco y La Plata): hace 10 años hacemos comedor y viandas para empresas del cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). ¿Me indicás quién gestiona la alimentación del personal en "+e.nombre+"? Quisiéramos acercarles una propuesta y una degustación sin costo. ¡Gracias!";
 }
 function chkDe(e, dest){ return (e.chk_dest && dest && e.chk_dest.toLowerCase()===String(dest).toLowerCase()) ? e.chk : ""; }
 function pendientesCampana(canal){

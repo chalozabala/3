@@ -531,7 +531,7 @@ function destinoCanal(e, canal){
 }
 const CLIENTES_REF="Sidersa, Inbelt, Pecam, Dinale y el Policlínico Unión";
 const BAJA="(Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)";
-function miEmpresa(){ return (st.perfil&&st.perfil.empresa)||"Good Food S.A."; }
+function miEmpresa(){ return (st.perfil&&st.perfil.empresa)||"Arsa Catering"; }
 function miNombre(){ return (st.perfil&&st.perfil.nombre)||"[Tu nombre]"; }
 const PLANTAS="plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires)";
 function firma(){
@@ -569,8 +569,8 @@ function cuerpoMail(e){
 }
 function notaLinkedIn(e){
   const c=contactoCanal(e,"linkedin");
-  let t="Hola "+(c?pilaDe(c.nombre):"")+", soy "+miNombre()+" de Good Food: hace 10 años damos comedor y viandas en el cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). Me gustaría sumarlo como contacto por si el tema entra en agenda en "+e.nombre+". ¡Saludos!";
-  if(t.length>300) t="Hola "+(c?pilaDe(c.nombre):"")+", soy "+miNombre()+" de Good Food (comedor y viandas, 10 años en el cordón industrial). Me gustaría sumarlo como contacto por si el tema entra en agenda en "+e.nombre+". ¡Saludos!";
+  let t="Hola "+(c?pilaDe(c.nombre):"")+", soy "+miNombre()+" de Arsa Catering: hace 10 años damos comedor y viandas en el cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). Me gustaría sumarlo como contacto por si el tema entra en agenda en "+e.nombre+". ¡Saludos!";
+  if(t.length>300) t="Hola "+(c?pilaDe(c.nombre):"")+", soy "+miNombre()+" de Arsa Catering (comedor y viandas, 10 años en el cordón industrial). Me gustaría sumarlo como contacto por si el tema entra en agenda en "+e.nombre+". ¡Saludos!";
   return t;
 }
 function chkDe(e, dest){ return (e.chk_dest && dest && e.chk_dest.toLowerCase()===String(dest).toLowerCase()) ? e.chk : ""; }
@@ -614,7 +614,7 @@ function vistaCampana(){
   let h=`<details class="mas" ${perfilCompleto?"":"open"} style="margin:0 0 14px"><summary>Mis datos para los mensajes ${perfilCompleto?"· "+esc(p.nombre)+" — "+esc(p.empresa):"· completar primero"}</summary>
     <form data-form="perfil"><div class="form-grilla" style="margin-top:8px">
       <label class="campo">Tu nombre<input type="text" name="nombre" value="${esc(p.nombre||"")}" placeholder="ej: Gonzalo Zabala"></label>
-      <label class="campo">Empresa<input type="text" name="empresa" value="${esc(p.empresa||"")}" placeholder="Good Food S.A."></label>
+      <label class="campo">Empresa<input type="text" name="empresa" value="${esc(p.empresa||"")}" placeholder="Arsa Catering"></label>
       <label class="campo">Teléfono<input type="text" name="tel" value="${esc(p.tel||"")}" placeholder="341 …"></label>
       <label class="campo">Web / Instagram<input type="text" name="web" value="${esc(p.web||"")}" placeholder="opcional"></label>
       <div class="ancho"><button class="primario" ${deshab}>Guardar mis datos</button></div>

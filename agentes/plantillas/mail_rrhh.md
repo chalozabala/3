@@ -2,7 +2,7 @@
 
 Hola {{NOMBRE_PILA}}, ¿cómo le va?
 
-Soy [TU NOMBRE], de Good Food S.A. Hace 10 años damos servicio de comedor y
+Soy [TU NOMBRE], de Arsa Catering. Hace 10 años damos servicio de comedor y
 viandas en el cordón industrial: hoy comen con nosotros los equipos de Sidersa,
 Inbelt, Pecam, Dinale y el Policlínico Unión, entre otros.
 
@@ -24,5 +24,5 @@ correo y no los molesto más.)
 Saludos,
 
 [TU NOMBRE]
-Good Food S.A. — comedores y viandas industriales
+Arsa Catering — comedores y viandas industriales
 Rosario · Arroyo Seco · La Plata (Bs. As.) · [TELÉFONO]

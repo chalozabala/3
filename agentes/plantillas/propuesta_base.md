@@ -9,7 +9,7 @@
 
 ## Quiénes somos
 
-**Good Food S.A.** — hace 10 años damos servicio de comedor y viandas a empresas
+**Arsa Catering** — hace 10 años damos servicio de comedor y viandas a empresas
 del cordón industrial. Cocinamos con tecnología de última generación en nuestras
 plantas propias de **Rosario, Arroyo Seco y La Plata (Buenos Aires)**; el servicio
 está a cargo de **nutricionistas** y montamos comedores incluso en espacios

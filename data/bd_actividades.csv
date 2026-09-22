@@ -1,0 +1,2 @@
+"ID_ACTIVIDAD","FECHA","ID_EMPRESA","ID_CONTACTO","RESPONSABLE_AGENTE","TIPO","DIRECCION","RESUMEN","RESULTADO","PROXIMO_PASO","FECHA_PROXIMO","ESTADO"
+"ACT-0001","2026-09-21","(ejemplo) EMP-0303","(ejemplo) CON-0xxx","humano","email","saliente","Ejemplo de registro: presupuesto enviado a SILCAR","esperando respuesta","llamar para seguimiento","2026-09-28","abierta"

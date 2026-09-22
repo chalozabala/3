@@ -262,7 +262,8 @@ function calcularAgenda(){
 /* ================= render ================= */
 function avisos(){
   let h="";
-  if(st.sinBase) h+=`<div class="aviso">Solo lectura: la base compartida no está disponible en esta vista. Abrí el link desde tu cuenta de claude.ai para registrar actividad.</div>`;
+  if(st.modoLocal) h+=`<div class="aviso">Modo local: lo que registres queda guardado en este navegador de esta computadora. Usá "Exportar CSV" (pestaña Actividad) como respaldo o para pasarle los registros a Claude.</div>`;
+  else if(st.sinBase) h+=`<div class="aviso">Solo lectura: la base compartida no está disponible en esta vista. Abrí el link desde tu cuenta de claude.ai para registrar actividad.</div>`;
   else if(st.soloLectura) h+=`<div class="aviso">Tu acceso es de solo lectura: podés consultar todo, pero no registrar. Pedile al dueño de la página acceso de edición.</div>`;
   $("#avisos").innerHTML=h;
 }
@@ -586,35 +587,72 @@ function refrescarLista(vistaFn, focoId){
 }
 
 async function exportarCSV(btn){
-  const dl = window.claude && window.claude.use ? await window.claude.use("downloads") : null;
-  if(!dl){ alertaTemporal("La descarga no está disponible en esta vista."); return; }
   const cab=["id","fecha","empresa_id","empresa","contacto_id","tipo","resumen","proximo_paso","fecha_proximo","estado","por"];
   const filas=st.acts.map(a=>[a.id,a.f,a.emp,(EMP.get(a.emp)||{}).nombre||"",a.con||"",a.tipo,a.resumen,a.proximo||"",a.f_proximo||"",a.estado,a.por||""]);
-  const csv=[cab,...filas].map(f=>f.map(v=>{v=String(v??"");return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}).join(",")).join("\n");
+  const csv="﻿"+[cab,...filas].map(f=>f.map(v=>{v=String(v??"");return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}).join(",")).join("\n");
+  const nombre="actividades_"+hoyISO()+".csv";
+  if(st.modoLocal){ descargaDirecta(nombre,csv); return; }
+  const dl = window.claude && window.claude.use ? await window.claude.use("downloads") : null;
+  if(!dl){ alertaTemporal("La descarga no está disponible en esta vista."); return; }
   btn.disabled=true;
-  try{ await dl.save({filename:"actividades_"+hoyISO()+".csv", data:"﻿"+csv}); }
+  try{ await dl.save({filename:nombre, data:csv}); }
   catch(err){ if(err&&err.code!=="declined") alertaTemporal("No se pudo exportar."); }
   finally{ btn.disabled=false; }
 }
 
+/* ================= base local (archivo abierto directo, sin claude.ai) ================= */
+function crearBaseLocal(){
+  const CLAVE="recorrida_db";
+  let datos={actividades:{},cuentas_meta:{},contactos_meta:{}};
+  try{ const g=localStorage.getItem(CLAVE); if(g) datos=Object.assign(datos,JSON.parse(g)); }catch(_){}
+  const oyentes=[];
+  function guardar(){ try{ localStorage.setItem(CLAVE,JSON.stringify(datos)); }catch(_){} }
+  function snap(col){ return {docs:Object.entries(datos[col]||{}).map(([id,d])=>({id, data:()=>d}))}; }
+  function avisar(col){ for(const o of oyentes) if(o.col===col) o.cb(snap(col)); }
+  function coleccion(col){
+    datos[col]=datos[col]||{};
+    const q={
+      orderBy:()=>q, limit:()=>q,
+      onSnapshot:(cb)=>{ oyentes.push({col,cb}); cb(snap(col)); return ()=>{}; },
+      doc:(id)=>({
+        set:async d=>{ datos[col][id]=d; guardar(); avisar(col); },
+        update:async d=>{ if(!datos[col][id]) throw {code:"invalid_argument",message:"no existe"}; Object.assign(datos[col][id],d); guardar(); avisar(col); },
+      }),
+    };
+    return q;
+  }
+  return {collection:coleccion, local:true};
+}
+function descargaDirecta(nombre, contenido){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([contenido],{type:"text/csv"}));
+  a.download=nombre; document.body.appendChild(a); a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},400);
+}
+
 /* ================= arranque ================= */
+function suscribir(db){
+  db.collection("actividades").orderBy("ts","desc").limit(500).onSnapshot(s=>{
+    st.acts=s.docs.map(d=>Object.assign({id:d.id}, d.data()));
+    st.dbListo=true; scheduleRender();
+  }, e=>{ console.error(e); if(e.code==="revoked"){ st.sinBase=true; avisos(); } });
+  db.collection("cuentas_meta").onSnapshot(s=>{
+    const m={}; for(const d of s.docs) m[d.id]=d.data();
+    st.meta=m; scheduleRender();
+  }, e=>console.error(e));
+  db.collection("contactos_meta").onSnapshot(s=>{
+    const m={}; for(const d of s.docs) m[d.id]=d.data();
+    st.conMeta=m; scheduleRender();
+  }, e=>console.error(e));
+}
 function conectar(){
-  if(!window.claude || typeof window.claude.use!=="function"){ st.sinBase=true; avisos(); return; }
+  if(!window.claude || typeof window.claude.use!=="function"){
+    st.db=crearBaseLocal(); st.modoLocal=true; suscribir(st.db); avisos(); return;
+  }
   window.claude.use("db").then(db=>{
     if(!db){ st.sinBase=true; avisos(); return; }
     st.db=db;
-    db.collection("actividades").orderBy("ts","desc").limit(500).onSnapshot(s=>{
-      st.acts=s.docs.map(d=>Object.assign({id:d.id}, d.data()));
-      st.dbListo=true; scheduleRender();
-    }, e=>{ console.error(e); if(e.code==="revoked"){ st.sinBase=true; avisos(); } });
-    db.collection("cuentas_meta").onSnapshot(s=>{
-      const m={}; for(const d of s.docs) m[d.id]=d.data();
-      st.meta=m; scheduleRender();
-    }, e=>console.error(e));
-    db.collection("contactos_meta").onSnapshot(s=>{
-      const m={}; for(const d of s.docs) m[d.id]=d.data();
-      st.conMeta=m; scheduleRender();
-    }, e=>console.error(e));
+    suscribir(db);
   });
   window.claude.use("user").then(async u=>{
     if(!u) return;

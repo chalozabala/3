@@ -1,0 +1,245 @@
+ESTADO,ID_EMPRESA,EMPRESA,MAIL,MOTIVO
+OK,EMP-0001,Zapata Hnos. S.A.,oficinatecnica@zapatahnossa.com.ar,dominio coincide
+OK,EMP-0002,YPF,TerminalSanLorenzo@ypf.com,dominio coincide
+GENERICO,EMP-0003,YO AMO MI CIUDAD,yoamomiciudad.sanlorenzo@gmail.com,casilla gmail
+REVISAR,EMP-0004,YGS CAPACITACIÓN Y CONSULTORÍA,info@ygs-group.com.ar,"dominio ""ygs-group.com.ar"" no coincide con el nombre"
+OK,EMP-0005,WILLIAMS ENTREGAS S.A.,rrhh@williamsagroservicios.com.ar,dominio coincide
+OK,EMP-0007,WATCHMAN,avalero@watchman.com.ar,dominio coincide
+OK,EMP-0008,Vipal Cauchos,vipal@vipal.com.ar,dominio coincide
+OK,EMP-0009,VENTILAR S.A.,ventilarsa@ventilarsa.com.ar,dominio coincide
+OK,EMP-0010,VENETUCCI,info@venetucci.net,dominio coincide
+OK,EMP-0011,VARTECO QUÍMICA PUNTANA,gcanavesio@varteco.com.ar,dominio coincide
+OK,EMP-0012,UNITEC BIO,info@unitecbio.com,dominio coincide
+OK,EMP-0014,Transelec,mkarle@transelec.com.ar,dominio coincide
+OK,EMP-0015,TRANEF,info@tranef.com.ar,dominio coincide
+OK,EMP-0016,TORK,administracion@torksa.com,dominio coincide
+OK,EMP-0017,TIGUAN S.A.,tecnica@tiguan.com.ar,dominio coincide
+OK,EMP-0018,Testatec,info@testatec.com.ar,dominio coincide
+OK,EMP-0022,TERMINALES Y SERVICIOS,postulaciones@terminalesyservicios.com.ar,dominio coincide
+OK,EMP-0023,Terminal Puerto Rosario (TPR),info@tpr.com.ar,dominio coincide
+OK,EMP-0024,TERMINAL 6,term6@terminal6.com.ar,dominio coincide
+OK,EMP-0027,TAKAY KAIPI S.A.,carolinacervigni@takay.com.ar,mail de contacto confirmado a mano
+OK,EMP-0028,TAGMAS Publicidad,scatini@tagmas.com,dominio coincide
+OK,EMP-0029,SYLOPER,info@syloper.com,dominio coincide
+OK,EMP-0030,SUX SOLAR,comercial@suxsolar.com.ar,dominio coincide
+OK,EMP-0032,STC INVERSIONES,info@stcinversiones.com.ar,dominio coincide
+OK,EMP-0034,SOLMEC,admin@solmecsa.com.ar,dominio coincide
+OK,EMP-0035,SOLAMB,rrhh@solamb.com.ar,dominio coincide
+OK,EMP-0036,SOL INGENIERÍA S.R.L.,sol@solingenieria.com.ar,dominio coincide
+OK,EMP-0037,SOIME,info@soime.com.ar,dominio coincide
+REVISAR,EMP-0038,SMP SEGURIDAD,fduringer@smpargentina.com,"dominio ""smpargentina.com"" no coincide con el nombre"
+OK,EMP-0041,SISGRA,sisgra@sisgra.com.ar,dominio coincide
+GENERICO,EMP-0042,SIRIUS CONSULTORES,njbelfiore@yahoo.com.ar,casilla yahoo
+OK,EMP-0044,SINERGIA SERVICIOS,info@sinergiaservicios.com.ar,dominio coincide
+OK,EMP-0045,SILCAR,llanieri@gruposilcar.com,dominio coincide
+OK,EMP-0046,SIECONS INGENIERÍA,administracion@siecons.com,dominio coincide
+OK,EMP-0047,SERVICIOS NV,administracion@serviciosnv.com,dominio coincide
+REVISAR,EMP-0048,SERVICIOS INGENIERÍA PUERTO,administracion@consultoriasip.com.ar,"dominio ""consultoriasip.com.ar"" no coincide con el nombre"
+OK,EMP-0050,SERVICIOS ELECTRICOS MAYLA,info@maylasrl.com.ar,dominio coincide
+OK,EMP-0051,SERVI RIO,sanlorenzo@servirio.com.ar,dominio coincide
+REVISAR,EMP-0053,SEMAC CONSTRUCCIONES S.A.,obras@brayco.com.ar,mail repetido en 2 cuentas
+OK,EMP-0054,SELECTA,bruno.gazze@selectaargentina.com,dominio coincide
+OK,EMP-0056,SAVYC S.A.,gerencia@savycsa.com.ar,dominio coincide
+OK,EMP-0057,SAURO CONSTRUCCIONES S.R.L.,hernanobras@hotmail.com,mail de contacto confirmado a mano
+OK,EMP-0059,Sacchi,info@sacchiweb.com.ar,dominio coincide
+OK,EMP-0060,S&D OBRAS Y SERVICIOS S.A.,carlosdestefanis@sdingenieria.com.ar,mail de contacto confirmado a mano
+REVISAR,EMP-0061,RV OBRAS Y SERVICIOS S.A.,rtorres@suelosyescorias.com,"dominio ""suelosyescorias.com"" no coincide con el nombre"
+OK,EMP-0063,Rosarpin,rosarpin@rosarpin.com.ar,dominio coincide
+OK,EMP-0064,RINAUDO CIA.CONSTRUCTORA S.R.L.,edgardo@rinaudoconstructora.com.ar,mail de contacto confirmado a mano
+GENERICO,EMP-0065,RENTAL SUR,ale.rentalsur@gmail.com,casilla gmail
+OK,EMP-0069,RANDSTAD,info@randstad.com.ar,dominio coincide
+OK,EMP-0070,RANDOM,maria.rodriguez@randon.com.ar,dominio coincide
+REVISAR,EMP-0071,R. y R. SERVICIOS,administracion@ryrsrl.com,"dominio ""ryrsrl.com"" no coincide con el nombre"
+OK,EMP-0072,QMS LATAM,qms@qmslatam.com,dominio coincide
+OK,EMP-0076,PROFERTIL,profertil@profertil.com.ar,dominio coincide
+OK,EMP-0077,Prodinsa Argentina S.A.,info@prodinsa.com.ar,dominio coincide
+OK,EMP-0078,PROAS S.R.L.,administracion@proassrl.com.ar,dominio coincide
+OK,EMP-0079,Proagro,info@proagrolab.com.ar,dominio coincide
+OK,EMP-0080,PRO GLOBAL,rosario.rrhh@proglobal.com,dominio coincide
+GENERICO,EMP-0082,PRAT CONSTRUCCIONES S.A.,nacho_ra@hotmail.com,casilla hotmail
+GENERICO,EMP-0083,POSE S.A.,licitaciones.posesa@gmail.com,casilla gmail
+OK,EMP-0084,POLEAS MIOR,info@poleasmior.com.ar,dominio coincide
+OK,EMP-0085,PLANARCO S.R.L.,mmartinovic@planarco.com.ar,dominio coincide
+OK,EMP-0086,Pinturas San Agustin,sucursalrosario@gruposanagustin.com.ar,dominio coincide
+OK,EMP-0087,PINTAR,info@pintarsrl.com.ar,dominio coincide
+GENERICO,EMP-0088,PILAR CONSTRUCCIONES S.R.L.,pilarconstruccionessrl@hotmail.com,casilla hotmail
+GENERICO,EMP-0089,PH CONSTRUCTORA S.R.L.,phconstructorasrl@gmail.com,casilla gmail
+GENERICO,EMP-0091,PELLEGRINI MONTAJES S.R.L.,pellegrinimontajes@fibertel.com.ar,casilla fibertel
+OK,EMP-0092,PEITEL S.A.,recepcion@peitel.com.ar,dominio coincide
+OK,EMP-0095,PATAGONIA BIOENERGÍA,info@patagoniabioenergia.com.ar,dominio coincide
+OK,EMP-0096,PALCON,info@palcon.com.ar,dominio coincide
+OK,EMP-0097,P.G.S. S.A.,hdacunto@pgssa.com.ar,dominio coincide
+OK,EMP-0098,Otaño Hermanos,recepcion@otanohnos.com.ar,dominio coincide
+OK,EMP-0100,Olympic San Luis SA,ventas@olympicsanluis.com.ar,dominio coincide
+GENERICO,EMP-0101,OLIMAR,olimar_sanlorenzo@yahoo.com.ar,casilla yahoo
+OK,EMP-0104,OIL CONTROL S.A.,info@oilcontrol.com.ar,dominio coincide
+OK,EMP-0108,NOURYON,info@nouryon.com,dominio coincide
+GENERICO,EMP-0109,NN INGENIERÍA,nningenieria@outlook.com,casilla outlook
+OK,EMP-0110,Nibbler SRL,ventas@nibbler.com.ar,dominio coincide
+OK,EMP-0111,NEQUEN SAN LORENZO,Jeronimo.martinezbo@nequensa.com.ar,mail de contacto confirmado a mano
+GENERICO,EMP-0113,NEHCON CONSTRUCCIONES S.R.L.,nehconconstruccionessrl@gmail.com,casilla gmail
+OK,EMP-0114,MUNDO CONSTRUCCIONES,maidana@mundo-sa.com.ar,dominio coincide
+REVISAR,EMP-0115,MTR S.A. Logística Portuaria,consultas@mtr-sa.com.ar,"dominio ""mtr-sa.com.ar"" no coincide con el nombre"
+GENERICO,EMP-0116,MS VINILOS,msvinilosdeco@gmail.com,casilla gmail
+REVISAR,EMP-0117,MRT TRANSPORTE,mrtsanlorenzo@grupoberaldi.com,"dominio ""grupoberaldi.com"" no coincide con el nombre"
+OK,EMP-0118,MoviPort S.A.,rrhh@moviportsa.com.ar,dominio coincide
+OK,EMP-0119,Morelli,melisa@morelli.com.ar,dominio coincide
+OK,EMP-0120,MONTARFE,ventas@montarfesrl.com.ar,dominio coincide
+OK,EMP-0121,MONGE CONSTRUCCIONES S.A.,rrhh@mongesa.com.ar,dominio coincide
+OK,EMP-0122,Molinos Agro,sustentabilidad@molinosagro.com.ar,dominio coincide
+OK,EMP-0124,MN INGENIERIA Y SOLUCIONES S.A.S.,luis.montaoo@mningenieria.com.ar,mail de contacto confirmado a mano
+OK,EMP-0125,MINIELLO & CIA,administracion@minielloycia.com,dominio coincide
+OK,EMP-0127,Metalúrgica Industrial S.A. (MISA),alberico@misa.com.ar,mail de contacto confirmado a mano
+OK,EMP-0129,METALIZA S.A.,info@metaliza.com.ar,dominio coincide
+OK,EMP-0131,Mercator SA,mercator@mercator.com.ar,dominio coincide
+OK,EMP-0132,MEFA INGENIERÍA,administracion@mefaingenieria.com.ar,dominio coincide
+OK,EMP-0133,MECALL S.R.L.,administracion@mecallsrl.com.ar,dominio coincide
+OK,EMP-0134,Mastergom,cauchos@mastergom.com.ar,dominio coincide
+OK,EMP-0135,MARIGO PERFORACIONES,ventas@marigo.com.ar,dominio coincide
+OK,EMP-0136,MARCHI DEPOT,administracion@marchidepotsa.com.ar,dominio coincide
+GENERICO,EMP-0137,MARANO SERVICIOS,mssteelframing@gmail.com,casilla gmail
+OK,EMP-0139,MAN INGENIERIA,contacto@maningenieria.ar,dominio coincide
+OK,EMP-0140,Maincal,contacto@maincal.com.ar,dominio coincide
+OK,EMP-0141,MADERO CONSTRUCCIONES S.R.L.,contacto@grupomadero.com.ar,dominio coincide
+OK,EMP-0143,LOS TANOS AGROSERVICIOS,info@lostanosagro.com,dominio coincide
+GENERICO,EMP-0144,LONERA CENTENARIO,loneracentenario@gmail.com,casilla gmail
+OK,EMP-0146,Logimet,ventas@logimet.com.ar,dominio coincide
+OK,EMP-0147,Loberaz S.A.,loberaz@loberaz.com.ar,dominio coincide
+OK,EMP-0150,Liliana,Mcazorla@liliana.com.ar,dominio coincide
+GENERICO,EMP-0151,LEGALES FLORES PIAZZA,abogadaflorespiazza@gmail.com,casilla gmail
+OK,EMP-0152,LAROMET S.A.,licitaciones@laromet.com.ar,dominio coincide
+OK,EMP-0153,Laboratorio Quimeco SRL,administracion@quimeco.com.ar,dominio coincide
+OK,EMP-0157,Juan Navarro SA,rosario@jnavarro.com.ar,dominio coincide
+OK,EMP-0159,Ivanar,compras@ivanar.com.ar,dominio coincide
+OK,EMP-0160,ISA INDEPENDENT SHIP AGENTS,isa@isa-agents.com.ar,dominio coincide
+OK,EMP-0161,IRT,sanlorenzo@irt.com.ar,dominio coincide
+GENERICO,EMP-0162,INGENIERIA Y SERVICIOS DELGADO S.A.,ingyserv.sa@gmail.com,casilla gmail
+OK,EMP-0163,INGENIERÍA UNO,administracion@ingenieriauno.com.ar,dominio coincide
+OK,EMP-0164,INGENIERÍA BOGGIO S.A.,sanlorenzo@ingenieriaboggio.com.ar,dominio coincide
+OK,EMP-0165,INGENIERIA & PILOTES S.R.L.,licitaciones@ingenieriaypilotes.com.ar,dominio coincide
+OK,EMP-0166,ING. RINALDI Y ASOC. S.A,milagros@rinaldiconstrucciones.com,dominio coincide
+OK,EMP-0168,ING. PEDRO MINERVINO S.A.,administracion@minervinosa.com.ar,dominio coincide
+OK,EMP-0169,INFYA SRL,administracion@infyasrl.com.ar,dominio coincide
+OK,EMP-0172,IMG RENTAL,comercial@imgrental.com.ar,dominio coincide
+GENERICO,EMP-0173,IMEI INGLES,imeiingles@yahoo.com.ar,casilla yahoo
+OK,EMP-0174,IMCO CONSTRUCTORA S.R.L.,gerencia@imcoconstructora.com,dominio coincide
+OK,EMP-0176,HORMIGONERA DEL LITORAL S.A.,ing.jquiroga@gmail.com,mail de contacto confirmado a mano
+OK,EMP-0177,HERNANDEZ Y BAGNERES,mgatti@hernandez-bagneres.com.ar,dominio coincide
+OK,EMP-0179,HEFU Argentina,administracion@hefuargentina.com.ar,dominio coincide
+GENERICO,EMP-0180,Hefesto SRL,hefesto@arnet.com.ar,casilla arnet
+OK,EMP-0183,GUERRERO – PAGODA,ventas474@guerrero.com.ar,dominio coincide
+REVISAR,EMP-0184,GTM,Info@gtmsrl.com.ar,"dominio ""gtmsrl.com.ar"" no coincide con el nombre"
+REVISAR,EMP-0185,Grupo Rosario Máquinas,info@gruporm.com.ar,"dominio ""gruporm.com.ar"" no coincide con el nombre"
+OK,EMP-0186,Grupo Oroño,info@grupoorono.com.ar,dominio coincide
+OK,EMP-0187,Grupo La Emilia / Motomel,responde@motomel.com.ar,dominio coincide
+REVISAR,EMP-0188,GRUPO DH,info@dhsh.com.ar,"dominio ""dhsh.com.ar"" no coincide con el nombre"
+OK,EMP-0189,GRUPO DELCO S.R.L.,delco@delcosrl.com.ar,dominio coincide
+OK,EMP-0190,GRUPO BRAYCO,info@brayco.com.ar,dominio coincide
+GENERICO,EMP-0191,GRUPO AMZ,amzrescate@gmail.com,casilla gmail
+OK,EMP-0192,GRIMACO S.R.L.,eduardoraffo@grimaco.com.ar,mail de contacto confirmado a mano
+OK,EMP-0193,GREEN LAB,hola@greenlab.com.ar,dominio coincide
+OK,EMP-0194,GRAMMATICO SERVICIOS,info@grammatico.com.ar,dominio coincide
+GENERICO,EMP-0196,GLOBAL ACCELERATOR S.R.L.,acceleratorglobal@gmail.com,casilla gmail
+OK,EMP-0198,Gerdau — Planta Pérez,gerdauventas@gerdau.com,dominio coincide
+OK,EMP-0199,GENTE DE RÍO SERVICIOS FLUVIALES,ops@gentederio.com.ar,dominio coincide
+OK,EMP-0200,Gemplast / Geminelli S.A.,info@gemplast.com.ar,dominio coincide
+OK,EMP-0201,GEK EXCAVACIONES,contacto@gekexcavaciones.com.ar,dominio coincide
+OK,EMP-0203,FUNDEMAP,rrhh@fundemap.com.ar,dominio coincide
+OK,EMP-0204,FUGRAN,rr.hh@fugran.com,dominio coincide
+GENERICO,EMP-0205,Freschi,gpfreschi@yahoo.com.ar,casilla yahoo
+OK,EMP-0206,Freplast SRL,ventas@freplast.com.ar,dominio coincide
+OK,EMP-0207,Fremec,ventas@fremec.com.ar,dominio coincide
+OK,EMP-0208,FREIJE Y FREIJE CONSTRUCTORA,proveedoresfreije@freijeyfreijeconstructorasrl.com,dominio coincide
+GENERICO,EMP-0209,FRANCAR,francar.productosindustriales@gmail.com,casilla gmail
+GENERICO,EMP-0210,FRANBE S.A.,memiliasanti@hotmail.com,casilla hotmail
+OK,EMP-0211,FLEXIO,personal@flexio.com.ar,dominio coincide
+OK,EMP-0213,FEGA S.A.,patriciaamorelli@hotmail.com,mail de contacto confirmado a mano
+OK,EMP-0214,Facar,ventas@facar.com.ar,dominio coincide
+GENERICO,EMP-0215,FAC Servicios Industriales,facserviciosind@gmail.com,casilla gmail
+GENERICO,EMP-0216,EYCOM Servicios,eycomservicios@gmail.com,casilla gmail
+OK,EMP-0218,EVONIK,matias.gonzalez@evonik.com,dominio coincide
+GENERICO,EMP-0219,ESTUDIO JURÌDICO BARRINAT,estudiobarrinataux@gmail.com,casilla gmail
+GENERICO,EMP-0220,ESSENTY,veronicatamagno@gmail.com,casilla gmail
+OK,EMP-0221,EQUIPAMIENTO SAN LORENZO,ventas@equipamientosanlorenzo.com,dominio coincide
+OK,EMP-0224,ELECTRO CONSTRUCTORA S.R.L.,federico@electroconstructorasrl.com.ar,dominio coincide
+OK,EMP-0225,EL LIBERTADOR,operaciones@ellibertador.net,dominio coincide
+REVISAR,EMP-0226,EL HAUAR,p_mayotto@elahuar.com,"dominio ""elahuar.com"" no coincide con el nombre"
+OK,EMP-0227,EDILIZIA S.A.,administracion@edilizia.com.ar,dominio coincide
+OK,EMP-0229,ECOAIRES,marcos@ecoaires.com.ar,dominio coincide
+OK,EMP-0232,DUAMAK S.A.,md@duamak.com.ar,mail de contacto confirmado a mano
+OK,EMP-0233,Droguería 20 de Junio,info@drogueria20dejunio.com.ar,dominio coincide
+OK,EMP-0236,Detexa SRL,detexaros@detexasrl.com.ar,dominio coincide
+GENERICO,EMP-0237,DEROSARIO SERVICIOS S.R.L.,derosarioservicios@hotmail.com,casilla hotmail
+GENERICO,EMP-0238,DEPROP S.R.L.,depropsrl@gmail.com,casilla gmail
+OK,EMP-0239,Delta Vial,info@deltavial.com.ar,dominio coincide
+OK,EMP-0240,DEL SOL CONSTRUCTORA S.A.,delsol@delsol.com.ar,dominio coincide
+OK,EMP-0241,DATAWISE,diego.garcia@datawise.com.ar,mail de contacto confirmado a mano
+REVISAR,EMP-0243,CVO,compras@cvosa.com.ar,"dominio ""cvosa.com.ar"" no coincide con el nombre"
+OK,EMP-0244,Cuarepoti,cuarepoti@cuarepoti.com.ar,dominio coincide
+OK,EMP-0245,Crystal Rock SA,contacto@crystalrock.com.ar,dominio coincide
+GENERICO,EMP-0247,CREAR SOLUCIONES Y SERVICIOS,crearsolucionesyservicios@gmail.com,casilla gmail
+GENERICO,EMP-0248,CRAVER’S TOURS,craverogabriel@hotmail.com,casilla hotmail
+GENERICO,EMP-0249,CRABSA S.A.,crabsa@fibertel.com.ar,casilla fibertel
+GENERICO,EMP-0250,COTRASER LTDA.,cotralyfltda@hotmail.com,casilla hotmail
+OK,EMP-0251,CORTEVA AGRISCIENCE,infoargentina@corteva.com,dominio coincide
+OK,EMP-0252,CORREO ANDREANI,gconesa@andreani.com,mail de contacto confirmado a mano
+OK,EMP-0253,Cormetal S.A.,cormetal@cormetalsa.com.ar,dominio coincide
+OK,EMP-0254,CONYLOG S.R.L.,ctimoszuk@conylog.com.ar,mail de contacto confirmado a mano
+OK,EMP-0255,CONSULTORES DE EMPRESAS,info@consultoresdeempresas.com,dominio coincide
+OK,EMP-0257,CONSTRUCCIONES Y SERVICIOS AMERICA S.A.,luciano@americaconstrucciones.com,dominio coincide
+REVISAR,EMP-0258,CONSTRUCCIONES TRES S.R.L.,construccionestres@c3srl.com.ar,"dominio ""c3srl.com.ar"" no coincide con el nombre"
+REVISAR,EMP-0260,CONSTRUCCIONES CIC S.A.,cicsa@cicsaingenieria.com,"dominio ""cicsaingenieria.com"" no coincide con el nombre"
+OK,EMP-0261,Consorcio de Gestión del Puerto de San Nicolás,rrhh@puertosannicolas.com,dominio coincide
+OK,EMP-0262,CONHORMAQ S.R.L.,marcelogaspari@conhormaq.com.ar,mail de contacto confirmado a mano
+OK,EMP-0263,CONEXYS S.R.L.,administracion@conexys.com.ar,dominio coincide
+OK,EMP-0264,Condor Group,condor@condorgroup.com.ar,dominio coincide
+OK,EMP-0265,Colvinil,info@colvinil.com.ar,dominio coincide
+OK,EMP-0267,COFCO INTERNATIONAL,info@cofcointernational.com,dominio coincide
+OK,EMP-0268,COCIVIAL S.A.,cocivial@cocivial.com.ar,dominio coincide
+GENERICO,EMP-0269,CLOROMIL,movilclormil@gmail.com,casilla gmail
+OK,EMP-0270,CISB,info@cisb.com.ar,dominio coincide
+OK,EMP-0271,CIA. ROSARINA DE DESOBSTRUCCIONES S.R.L.,estelacoria1@hotmail.com,mail de contacto confirmado a mano
+OK,EMP-0272,CHL INGENIERIA Y CONSTRUCCIONES S.R.L.,gerencia@chlingenieria.com.ar,dominio coincide
+OK,EMP-0273,Chiaza Servicios Industriales,empleos@chiaza.com.ar,dominio coincide
+OK,EMP-0277,CELOTTO CONSTRUCCIONES S.R.L.,celotto@celotto.com.ar,dominio coincide
+GENERICO,EMP-0278,CEDUE S.A.,ceduesa@gmail.com,casilla gmail
+OK,EMP-0279,CEDIMET,ventas@cedimet.com.ar,dominio coincide
+OK,EMP-0281,Cartopel,cartopel@cartopel.com.ar,dominio coincide
+OK,EMP-0283,carlini hnos,compras2@carlinihnos.com.ar,dominio coincide
+OK,EMP-0285,CAPSI,info@capsisrl.com.ar,dominio coincide
+GENERICO,EMP-0286,CAPAZE S.R.L.,capazesrl@gmail.com,casilla gmail
+REVISAR,EMP-0287,CALIDAD ASEGURADA EN AGUAS S.A.,ingenierosaravia@sdingenieria.com.ar,"dominio ""sdingenieria.com.ar"" no coincide con el nombre"
+OK,EMP-0288,CAI,info@cai.com.ar,dominio coincide
+REVISAR,EMP-0289,C.P.Q.,contacto@cpqsrl.com.ar,"dominio ""cpqsrl.com.ar"" no coincide con el nombre"
+REVISAR,EMP-0290,BUNGE PLANTA,silvia.garello@bunge.com,mail repetido en 2 cuentas
+REVISAR,EMP-0291,BUNGE NORDLINK,silvia.garello@bunge.com,mail repetido en 2 cuentas
+OK,EMP-0292,BRUMONT S.A.,pmontaldo@brumont.com.ar,mail de contacto confirmado a mano
+OK,EMP-0293,BRIMAX,info@brimaxargentina.com.ar,dominio coincide
+REVISAR,EMP-0294,BRICKET,VENTAS@briket.com.ar,"dominio ""briket.com.ar"" no coincide con el nombre"
+REVISAR,EMP-0295,BRAJKOVIC S.A.I.,obras@brayco.com.ar,mail repetido en 2 cuentas
+OK,EMP-0296,BORDO ARQUITECTURA S.R.L.,nblanco@bordoarquitectura.com,mail de contacto confirmado a mano
+OK,EMP-0297,BOERO,apistoni@carlosboero.com.ar,mail de contacto confirmado a mano
+OK,EMP-0298,Bioxen,info@bioxen.com.ar,dominio coincide
+REVISAR,EMP-0300,BG PUERTO DE CABOTAJE,bg@guarderianauticabg.com.ar,"dominio ""guarderianauticabg.com.ar"" no coincide con el nombre"
+OK,EMP-0303,BAGLIETTO,gabriela@bagliettoestructuras.com,dominio coincide
+OK,EMP-0304,AVIGLIANO,tecnica@aviglianosa.com.ar,dominio coincide
+GENERICO,EMP-0309,ARMANDO S.R.L.,carosilvina@hotmail.com,casilla hotmail
+OK,EMP-0312,arenera alzua,matias@arenasalzua.com.ar,mail de contacto confirmado a mano
+OK,EMP-0313,ARAUCO ARGENTINA,info@araucoargentina.com,dominio coincide
+GENERICO,EMP-0314,ANTONINO MILISENDA S.A.,antoninomilisendasa@gmail.com,casilla gmail
+OK,EMP-0315,Amichem SRL,ventas@amichem.com.ar,dominio coincide
+REVISAR,EMP-0316,ALUMINIOS Y VIDRIOS GROUP S.R.L.,pabloalacano@ayvroup.com.ar,"dominio ""ayvroup.com.ar"" no coincide con el nombre"
+OK,EMP-0317,ALÌ ABOGADOS,contacto@aliabogados.com.ar,dominio coincide
+GENERICO,EMP-0318,ALDANA AISLACIONES,aislacionesaldana@hotmail.com.ar,casilla hotmail
+OK,EMP-0319,Alborada SRL,recepcion@alboradasrl.com.ar,dominio coincide
+GENERICO,EMP-0320,AL SERVICIO S.R.L.,alserviciosrl@hotmail.com,casilla hotmail
+REVISAR,EMP-0321,AIN SERVICIOS S.R.L.,administracion@automatismosind.com.ar,"dominio ""automatismosind.com.ar"" no coincide con el nombre"
+OK,EMP-0322,AES Argentina — Central San Nicolás,rrii@aes.com,dominio coincide
+OK,EMP-0323,AERCOM,info@aercom.com.ar,dominio coincide
+OK,EMP-0325,ADOBE CONSTRUCCIONES S.R.L.,administracion@adobeconstrucciones.com.ar,dominio coincide
+OK,EMP-0326,ADIENT,maria.sciascia@adient.com,dominio coincide
+OK,EMP-0327,ACEITERA GENERAL DEHEZA,gdeheza@agd.com.ar,dominio coincide
+OK,EMP-0330,AC Arquitectura e Ingeniería,consultas@ac.com.ar,dominio coincide
+OK,EMP-0332,A3 SERVICIOS CONSTRUCTIVOS,contacto@A3.com.ar,dominio coincide
+OK,EMP-0333,+BRAND,contacto@masbrandcomunicacion.com,dominio coincide
+OK,EMP-0350,Air Liquide Argentina,florencia.rusch@airliquide.com,mail de contacto confirmado a mano

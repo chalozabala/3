@@ -551,11 +551,13 @@ function cuerpoMail(e){
     if(c.area==="RRHH") t+="Sé que la alimentación del personal suele pasar por Recursos Humanos, así que le escribo directo. ";
     else if(c.area==="Compras") t+="Le escribo para que nos tengan en carpeta como proveedores del rubro. ";
     t+="Trabajamos con menú rotativo semanal, dietas especiales (celíacos, veganos, hiposódicas) y entregas por turno, incluso nocturnos, con habilitaciones al día.\n\n";
-    t+="Si les sirve, le acerco una propuesta cerrada a la dotación real y coordinamos una degustación sin compromiso. ¿Tiene 15 minutos esta semana?\n\nSaludos,\n"+firma();
+    t+="Si les sirve, le acerco una propuesta cerrada a la dotación real y coordinamos una degustación sin compromiso. ¿Tiene 15 minutos esta semana?\n\n";
+    t+="(Si no es el área indicada o prefieren no recibir más información, respondan este correo y no los molesto más.)\n\nSaludos,\n"+firma();
   }else{
     t+="Hola, buen día.\n\n";
     t+="Les escribo de "+mi+": hacemos comedor y viandas para empresas del cordón industrial ("+zona+"), con menú rotativo semanal, dietas especiales y entregas por turno, habilitaciones al día.\n\n";
-    t+="¿Me podrían indicar quién gestiona el servicio de alimentación del personal (Compras o Recursos Humanos)? Me gustaría acercarles una propuesta y coordinar una degustación sin compromiso.\n\n¡Muchas gracias!\n\n"+firma();
+    t+="¿Me podrían indicar quién gestiona el servicio de alimentación del personal (Compras o Recursos Humanos)? Me gustaría acercarles una propuesta y coordinar una degustación sin compromiso.\n\n";
+    t+="(Si no es el área indicada o prefieren no recibir más información, respondan este correo y no los molesto más.)\n\n¡Muchas gracias!\n\n"+firma();
   }
   return t;
 }
@@ -567,10 +569,12 @@ function msgWhatsApp(e){
   const p=st.perfil||{};
   return "Hola, ¿qué tal? Soy "+(p.nombre||"[tu nombre]")+" de "+(p.empresa||"[tu empresa]")+", hacemos comedor y viandas para empresas del cordón industrial. ¿Me indicás quién gestiona la alimentación del personal en "+e.nombre+"? Quisiera acercarles una propuesta y una degustación sin compromiso. ¡Gracias!";
 }
+function chkDe(e, dest){ return (e.chk_dest && dest && e.chk_dest.toLowerCase()===String(dest).toLowerCase()) ? e.chk : ""; }
 function pendientesCampana(canal){
   const tipo=CANALES[canal];
-  const yaPorCanal=new Set(), conAlguna=new Set();
+  const yaPorCanal=new Set(), conAlguna=new Set(), destUsados=new Set();
   for(const a of st.acts){ conAlguna.add(a.emp); if(a.tipo===tipo) yaPorCanal.add(a.emp); }
+  const orden={ok:0, "":1, gen:1, rev:2};
   return D.empresas.filter(e=>{
     if(e.excluida||CERRADOS.has(estadoDe(e))) return false;
     if(!destinoCanal(e,canal)) return false;
@@ -579,7 +583,18 @@ function pendientesCampana(canal){
     if(m["omitida_"+canal]) return false;
     if(st.soloNuevas && (conAlguna.has(e.id) || (e.contactado||"").toUpperCase()==="SI")) return false;
     return true;
-  }).sort((a,b)=>b.score-a.score);
+  }).sort((a,b)=>{
+    if(canal==="mail"){
+      const d=orden[chkDe(a,destinoCanal(a,"mail"))]-orden[chkDe(b,destinoCanal(b,"mail"))];
+      if(d) return d;
+    }
+    return b.score-a.score;
+  }).filter(e=>{
+    if(canal!=="mail") return true;
+    const dest=String(destinoCanal(e,"mail")).toLowerCase();
+    if(destUsados.has(dest)) return false;   // misma casilla que otra cuenta: se manda una sola vez
+    destUsados.add(dest); return true;
+  });
 }
 function enviadosCampana(canal){
   const tipo=CANALES[canal];
@@ -609,9 +624,11 @@ function vistaCampana(){
     </select>
     <label class="campo" style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="solo-nuevas" ${st.soloNuevas?"checked":""} style="width:auto"> solo cuentas nunca contactadas</label>
     ${canal==="mail"?`<button data-action="merge-csv" title="CSV con destinatario, asunto y cuerpo por fila">CSV p/ mail merge</button>`:""}
-  </div>
-  <div class="sub" style="margin-bottom:12px">${enviadosCampana(canal)} enviados por este canal · ${lista.length} pendientes.
-  ${canal==="mail"?"Consejo: mandá de a 15–25 por día desde tu casilla para no caer en spam.":""}
+  </div>`;
+  let nOk=0,nGen=0,nRev=0;
+  if(canal==="mail") for(const e of lista){ const k=chkDe(e,destinoCanal(e,"mail")); if(k==="ok")nOk++; else if(k==="rev")nRev++; else nGen++; }
+  h+=`<div class="sub" style="margin-bottom:12px"><b>Nada se envía solo</b>: cada mensaje lo abrís, lo revisás y lo mandás vos. ${enviadosCampana(canal)} enviados por este canal · ${lista.length} pendientes${canal==="mail"?` (✓ ${nOk} verificados por dominio · ${nGen} casilla genérica · ⚠ ${nRev} a revisar)`:""}.
+  ${canal==="mail"?"Consejo: mandá de a 15–25 por día desde tu casilla para no caer en spam, empezando por los verificados.":""}
   ${canal==="linkedin"?"La invitación se manda a mano desde tu cuenta: abrí el perfil, tocá Conectar → Añadir nota y pegá el texto.":""}</div>`;
 
   if(!perfilCompleto) h+=`<div class="aviso">Completá <b>Mis datos</b> arriba: los mensajes salen con [corchetes] hasta que los cargues.</div>`;
@@ -622,7 +639,9 @@ function vistaCampana(){
     const dest=destinoCanal(e,canal);
     let quien, cuerpo, acciones;
     if(canal==="mail"){
-      quien=c?`${esc(c.nombre)} — ${esc(c.cargo.slice(0,40))}`:`casilla institucional`;
+      const k=chkDe(e,dest);
+      const sello = k==="ok"?`<span class="chip ok">✓ verificado</span>` : k==="rev"?`<span class="chip crit">⚠ ${esc(e.chk_motivo||"revisar destinatario")}</span>` : `<span class="chip warn">casilla genérica</span>`;
+      quien=(c?`${esc(c.nombre)} — ${esc(c.cargo.slice(0,40))}`:`casilla institucional`)+" "+sello;
       cuerpo=asuntoMail(e)+"\n\n"+cuerpoMail(e);
       const href="mailto:"+encodeURIComponent(dest)+"?subject="+encodeURIComponent(asuntoMail(e))+"&body="+encodeURIComponent(cuerpoMail(e).replace(/\n/g,"\r\n"));
       acciones=`<a class="chip acento" href="${esc(href)}">Abrir mail listo</a>`;

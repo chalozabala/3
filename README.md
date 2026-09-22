@@ -20,10 +20,29 @@ agentes/
   seguimiento.py       vencimientos de actividades y cuentas
   plantillas/          plantillas de propuesta y mensajes
   README.md            manual de operación y ciclo semanal
+aplicativo/
+  index.html           la app "Recorrida" (publicada como Artifact en claude.ai)
+  datos.js             maestros que consume la app (generado, no editar a mano)
+  build_datos.py       regenera datos.js desde data/ (correr tras cada cambio)
 docs/
   diccionario_datos.md diccionario de columnas y reglas de uso
-  aplicativo_appsheet.md cómo montar la app (AppSheet/Glide) sobre las planillas
+  aplicativo_appsheet.md alternativa no-code (AppSheet/Glide) sobre las planillas
 ```
+
+## El aplicativo "Recorrida"
+
+App de seguimiento para la fuerza de venta, publicada como página privada de
+claude.ai. Vistas: **Hoy** (vencimientos + cola priorizada), **Cuentas**
+(cartera con ficha por empresa), **Contactos** (con verificación) y
+**Actividad** (bitácora global + export CSV). Los maestros viajan en
+`datos.js`; lo vivo (actividades, estados, verificaciones) se guarda en la
+base compartida del artifact (colecciones `actividades`, `cuentas_meta`,
+`contactos_meta`), que Claude puede leer para regenerar la cola y volcar a
+`data/`. Ciclo de actualización:
+
+1. Actualizar `data/` (correcciones, enriquecimiento).
+2. `python3 aplicativo/build_datos.py`
+3. Republicar el artifact con el `datos.js` nuevo (lo hace Claude).
 
 ## Modelo relacional
 

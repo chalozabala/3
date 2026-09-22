@@ -58,10 +58,12 @@ investigación, no de script: se hace con sesiones de Claude (como los
 relevamientos del 21 y 22-09) pidiéndole que actualice `bd_empresas` /
 `bd_contactos` con fuentes citadas.
 
-## Sincronización con Google Drive
+## Sincronización con el aplicativo y Drive
 
-Hoy la copia operativa vive en este repo y las 4 planillas de Drive son el
-espejo para consultar/compartir. Después de una tanda de cambios, re-exportar
-los CSV a Drive (o pedirle a Claude que lo haga). Si el aplicativo se monta
-sobre AppSheet/Glide (ver `docs/aplicativo_appsheet.md`), Drive pasa a ser la
-copia operativa y este repo queda como respaldo versionado.
+La operación diaria (registrar llamadas, estados, verificaciones) vive en la
+app **Recorrida** (`aplicativo/`), que guarda en la base compartida del
+artifact. Los maestros que la app muestra salen de `data/` vía
+`aplicativo/build_datos.py`. El ciclo con Claude: leer las actividades de la
+base del artifact → volcarlas a `bd_actividades.csv` → correr priorizador →
+regenerar `datos.js` → republicar. Las 4 planillas de Drive quedan como espejo
+de consulta; re-exportarlas tras cada tanda de cambios.

@@ -10,11 +10,19 @@ industrial Gran Rosario – San Lorenzo – Puerto Gral. San Martín – Timbúe
 data/
   bd_empresas.csv      376 cuentas (1 fila por empresa)  — clave: ID_EMPRESA
   bd_contactos.csv     314 personas (1 fila por contacto) — clave: ID_CONTACTO → ID_EMPRESA
-  bd_actividades.csv   bitácora de interacciones (vacía; la llenan vendedores/agentes)
-  bd_propuestas.csv    registro de propuestas por cuenta (vacío)
+  bd_actividades.csv   bitácora de interacciones (la llenan vendedores/agentes)
+  bd_propuestas.csv    registro de propuestas por cuenta (PROP-0001/0002: borradores de ejemplo)
   fuentes/             datos crudos: hoja original + relevamientos 21/22-09-2026
+agentes/
+  priorizador.py       arma la cola de trabajo priorizada     → salidas/cola_trabajo_*.csv
+  propuesta.py         borrador de propuesta por cuenta       → salidas/propuestas/
+  contacto.py          borradores de mail + LinkedIn          → salidas/borradores/
+  seguimiento.py       vencimientos de actividades y cuentas
+  plantillas/          plantillas de propuesta y mensajes
+  README.md            manual de operación y ciclo semanal
 docs/
   diccionario_datos.md diccionario de columnas y reglas de uso
+  aplicativo_appsheet.md cómo montar la app (AppSheet/Glide) sobre las planillas
 ```
 
 ## Modelo relacional
@@ -25,19 +33,24 @@ Toda escritura de los agentes va a **ACTIVIDADES** y **PROPUESTAS**; EMPRESAS y
 CONTACTOS solo se actualizan al verificar o enriquecer datos (campo `VERIFICADO`,
 `ESTADO_CONTACTO`, `ESTADO_PIPELINE`).
 
-## Flujo previsto de agentes
+## Agentes (implementados en `agentes/`)
 
-1. **Agente priorizador**: rankea cuentas por tamaño estimado, área cubierta
-   (Compras/RRHH con nombre) y estado del pipeline; arma la cola de trabajo diaria.
-2. **Agente de propuesta**: con los datos de EMPRESAS (tipo de servicio, turnos,
-   dotación) genera el borrador de propuesta y lo registra en PROPUESTAS.
-3. **Agente de contacto (drafting)**: redacta el mail/mensaje personalizado por
-   contacto (cargo + área + gancho de la cuenta). **El envío lo aprueba una persona**;
-   el resultado se registra en ACTIVIDADES.
-4. **Agente de seguimiento**: lee ACTIVIDADES, detecta vencimientos de
-   `FECHA_PROXIMO` y regenera la cola.
-5. **Agente de enriquecimiento**: cierra los huecos marcados (contactos sin URL,
-   empresas `VERIFICAR`/`NO IDENTIFICADA`).
+1. **Priorizador** (`priorizador.py`): rankea las cuentas por pipeline activo,
+   decisor identificado, canal disponible, dotación y prioridad del equipo;
+   arma la cola de trabajo (`--top`, `--todas`, `--detalle EMP-XXXX`).
+2. **Propuesta** (`propuesta.py`): genera el borrador de propuesta por cuenta
+   (comedor o viandas) y con `--registrar` lo anota en PROPUESTAS.
+3. **Contacto** (`contacto.py`): redacta mail + mensaje de LinkedIn por
+   contacto. **El envío lo hace y aprueba una persona**; después se registra
+   con `--registrar-envio`, que también pasa el contacto a `contactado`.
+4. **Seguimiento** (`seguimiento.py`): lee ACTIVIDADES y EMPRESAS y lista lo
+   vencido y lo próximo.
+5. **Enriquecimiento**: sin script — investigación con sesiones de Claude que
+   actualizan los maestros con fuentes citadas (ver `agentes/README.md`).
+
+Los cuatro scripts corren con Python 3 puro; `--ia` (opcional) pule la
+redacción con la API de Claude si hay `ANTHROPIC_API_KEY` configurada.
+Manual completo: `agentes/README.md`.
 
 ## Reglas de uso (importantes)
 

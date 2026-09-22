@@ -497,7 +497,7 @@ function vistaActividad(){
 }
 
 /* ================= campaña de contacto inicial ================= */
-const CANALES={mail:"email", linkedin:"linkedin", whatsapp:"whatsapp"};
+const CANALES={mail:"email", linkedin:"linkedin"};
 function zonaDe(loc){
   const l=(loc||"").toUpperCase();
   if(/SAN LORENZO|PUERTO|TIMB|RICARDONE|ALDAO/.test(l)) return "San Lorenzo–Timbúes";
@@ -506,13 +506,6 @@ function zonaDe(loc){
 }
 function pilaDe(nombre){ return (String(nombre||"").trim().split(/\s+/)[0])||""; }
 function extraerMail(s){ const m=String(s||"").match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/); return m?m[0]:null; }
-function waNumero(tel){
-  let d=String(tel||"").replace(/\D/g,"").replace(/^0+/,"");
-  if(d.startsWith("549")&&d.length===13) return d;
-  if(d.startsWith("54")&&d.length===12) return "549"+d.slice(2);
-  if(d.length===10) return "549"+d;
-  return null;
-}
 function esEx(c){
   const cargo=String(c.cargo||"").trim().toUpperCase(), notas=String(c.notas||"").toUpperCase();
   return /^EX[\s\-]/.test(cargo) || /POSIBLE EX|EX\?|¿EX|YA NO EST/.test(cargo+" "+notas);
@@ -534,7 +527,6 @@ function contactoCanal(e, canal){
 function destinoCanal(e, canal){
   if(canal==="mail"){ const c=contactoCanal(e,"mail"); return c?extraerMail(c.email):extraerMail(e.mail); }
   if(canal==="linkedin"){ const c=contactoCanal(e,"linkedin"); return c?c.linkedin:null; }
-  if(canal==="whatsapp") return waNumero(e.tel);
   return null;
 }
 const CLIENTES_REF="Sidersa, Inbelt, Pecam, Dinale y el Policlínico Unión";
@@ -581,9 +573,6 @@ function notaLinkedIn(e){
   if(t.length>300) t="Hola "+(c?pilaDe(c.nombre):"")+", soy "+miNombre()+" de Good Food (comedor y viandas, 10 años en el cordón industrial). Me gustaría sumarlo como contacto por si el tema entra en agenda en "+e.nombre+". ¡Saludos!";
   return t;
 }
-function msgWhatsApp(e){
-  return "Hola, ¿qué tal? Soy "+miNombre()+", de Good Food (plantas en Rosario, Arroyo Seco y La Plata): hace 10 años hacemos comedor y viandas para empresas del cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). ¿Me indicás quién gestiona la alimentación del personal en "+e.nombre+"? Quisiéramos acercarles una propuesta y una degustación sin costo. ¡Gracias!";
-}
 function chkDe(e, dest){ return (e.chk_dest && dest && e.chk_dest.toLowerCase()===String(dest).toLowerCase()) ? e.chk : ""; }
 function pendientesCampana(canal){
   const tipo=CANALES[canal];
@@ -618,7 +607,7 @@ function enviadosCampana(canal){
 function vistaCampana(){
   const p=st.perfil||{}, canal=st.canal;
   const deshab = st.soloLectura||st.sinBase ? "disabled" : "";
-  const pend={mail:pendientesCampana("mail"),linkedin:pendientesCampana("linkedin"),whatsapp:pendientesCampana("whatsapp")};
+  const pend={mail:pendientesCampana("mail"),linkedin:pendientesCampana("linkedin")};
   const lista=pend[canal];
   const perfilCompleto=p.nombre&&p.empresa;
 
@@ -635,7 +624,6 @@ function vistaCampana(){
     <select id="canal-camp">
       <option value="mail" ${canal==="mail"?"selected":""}>✉️ Mail (${pend.mail.length} pendientes)</option>
       <option value="linkedin" ${canal==="linkedin"?"selected":""}>💼 LinkedIn (${pend.linkedin.length})</option>
-      <option value="whatsapp" ${canal==="whatsapp"?"selected":""}>📱 WhatsApp (${pend.whatsapp.length})</option>
     </select>
     <label class="campo" style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="solo-nuevas" ${st.soloNuevas?"checked":""} style="width:auto"> solo cuentas nunca contactadas</label>
     ${canal==="mail"?`<button data-action="merge-csv" title="CSV con destinatario, asunto y cuerpo por fila">CSV p/ mail merge</button>`:""}
@@ -660,14 +648,10 @@ function vistaCampana(){
       cuerpo=asuntoMail(e)+"\n\n"+cuerpoMail(e);
       const href="mailto:"+encodeURIComponent(dest)+"?subject="+encodeURIComponent(asuntoMail(e))+"&body="+encodeURIComponent(cuerpoMail(e).replace(/\n/g,"\r\n"));
       acciones=`<a class="chip acento" href="${esc(href)}">Abrir mail listo</a>`;
-    }else if(canal==="linkedin"){
+    }else{
       quien=`${esc(c.nombre)} — ${esc(c.cargo.slice(0,40))}`;
       cuerpo=notaLinkedIn(e);
       acciones=`<a class="chip acento" href="${esc(dest)}" target="_blank" rel="noopener">Abrir perfil</a>`;
-    }else{
-      quien=`WhatsApp ${esc(e.tel)}`;
-      cuerpo=msgWhatsApp(e);
-      acciones=`<a class="chip acento" href="https://wa.me/${dest}?text=${encodeURIComponent(cuerpo)}" target="_blank" rel="noopener">Abrir WhatsApp</a>`;
     }
     h+=`<div class="tarjeta" data-emp="${e.id}">
       <div class="fila-titulo"><b><a href="#/cuenta/${e.id}">${esc(e.nombre)}</a></b>${e.localidad?`<span class="lugar">${esc(e.localidad)}</span>`:""}</div>
@@ -687,9 +671,8 @@ function vistaCampana(){
   return h;
 }
 function textoCampana(e){
-  if(st.canal==="mail") return asuntoMail(e)+"\n\n"+cuerpoMail(e);
   if(st.canal==="linkedin") return notaLinkedIn(e);
-  return msgWhatsApp(e);
+  return asuntoMail(e)+"\n\n"+cuerpoMail(e);
 }
 async function copiarTexto(txt, btn){
   let ok=false;

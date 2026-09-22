@@ -56,7 +56,7 @@ footer{margin-top:36px;border-top:1px solid var(--borde);padding-top:14px;color:
 <div class="nota">Este es el texto validado que genera la app en <b>todas</b> las cuentas. Los <span class="tok">{tokens}</span> se completan solos con los datos de cada empresa y con "Mis datos". Para cambiar una palabra: pedírselo a Claude y se actualiza en toda la campaña.</div>
 
 <h2>El mail</h2>
-<p class="cuando">Con nombre va la columna izquierda (21 decisores de Compras/RRHH con mail confirmado); sin nombre va la derecha, pensada para que la casilla institucional te derive o reenvíe.</p>
+<p class="cuando">Es el mismo mail para toda la lista: con nombre (izquierda, los decisores de Compras/RRHH) cambia solo el saludo y la línea del área; sin nombre (derecha, casillas institucionales) va con saludo general y la línea de proveedor.</p>
 <div class="par">
   <div class="mail"><div class="quien">A decisor con nombre (Compras / RRHH)</div>
     <div class="asunto"><small>Asunto</small>Alimentación del personal en <span class="tok">{EMPRESA}</span></div>
@@ -78,20 +78,21 @@ Saludos,
 Good Food S.A. — comedores y viandas industriales
 Rosario · Arroyo Seco · La Plata (Bs. As.) · <span class="tok">{tel}</span></div></div>
 
-  <div class="mail"><div class="quien">A casilla institucional (que te deriven)</div>
-    <div class="asunto"><small>Asunto</small>¿Quién gestiona la alimentación del personal en <span class="tok">{EMPRESA}</span>?</div>
+  <div class="mail"><div class="quien">A casilla institucional (sin nombre)</div>
+    <div class="asunto"><small>Asunto</small>Alimentación del personal en <span class="tok">{EMPRESA}</span></div>
     <div class="cuerpo">Hola, buen día.
 
-Soy <span class="tok">{tu nombre}</span>, de Good Food S.A.: hace 10 años damos comedor y viandas a empresas del cordón industrial (Sidersa, Inbelt, Pecam, Dinale y el Policlínico Unión, entre otras).
+Soy <span class="tok">{tu nombre}</span>, de Good Food S.A. Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de Sidersa, Inbelt, Pecam, Dinale y el Policlínico Unión, entre otros.
 
-¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?
+Les escribo para que nos tengan en carpeta como proveedor del rubro.
 
-Para esa persona, en dos líneas: plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires) con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno; montamos comedores incluso en espacios reducidos. Con gusto acercamos una propuesta y una degustación sin compromiso.
+Cocinamos con tecnología de última generación en plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires); el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.
+
+¿Les sirve que les acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.
 
 (Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)
 
-¡Muchas gracias!
-
+Saludos,
 <span class="tok">{tu nombre}</span>
 Good Food S.A. — comedores y viandas industriales
 Rosario · Arroyo Seco · La Plata (Bs. As.) · <span class="tok">{tel}</span></div></div>

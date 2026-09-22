@@ -562,9 +562,7 @@ function lineaArea(c){
   return "";
 }
 function asuntoMail(e){
-  const c=contactoCanal(e,"mail");
-  return c ? "Alimentación del personal en "+e.nombre
-           : "¿Quién gestiona la alimentación del personal en "+e.nombre+"?";
+  return "Alimentación del personal en "+e.nombre;
 }
 function cuerpoMail(e){
   const c=contactoCanal(e,"mail");
@@ -578,10 +576,11 @@ function cuerpoMail(e){
     t+=BAJA+"\n\nSaludos,\n"+firma();
   }else{
     t+="Hola, buen día.\n\n";
-    t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años damos comedor y viandas a empresas del cordón industrial ("+CLIENTES_REF+", entre otras).\n\n";
-    t+="¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?\n\n";
-    t+="Para esa persona, en dos líneas: "+PLANTAS+" con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno; montamos comedores incluso en espacios reducidos. Con gusto acercamos una propuesta y una degustación sin compromiso.\n\n";
-    t+=BAJA+"\n\n¡Muchas gracias!\n\n"+firma();
+    t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
+    t+="Les escribo para que nos tengan en carpeta como proveedor del rubro.\n\n";
+    t+="Cocinamos con tecnología de última generación en "+PLANTAS+"; el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.\n\n";
+    t+="¿Les sirve que les acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.\n\n";
+    t+=BAJA+"\n\nSaludos,\n"+firma();
   }
   return t;
 }

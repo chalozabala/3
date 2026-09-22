@@ -197,7 +197,7 @@ const st = {
   vendedor:"", pendiente:false, canal:"mail", soloNuevas:true, nCamp:30, variante:"A",
   filtros:{ qCuentas:"", fCuentas:"trabajar", oCuentas:"az", nCuentas:60, qCon:"", areaCon:"todas", nCon:80, nAct:60 },
 };
-try{ st.vendedor = localStorage.getItem("vendedor") || ""; st.variante = localStorage.getItem("variante") || "A"; }catch(_){}
+try{ st.vendedor = localStorage.getItem("vendedor") || ""; }catch(_){}
 
 /* ================= utilidades ================= */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -553,53 +553,25 @@ function lineaArea(c){
   return "";
 }
 function asuntoMail(e){
-  const c=contactoCanal(e,"mail"), v=st.variante;
-  if(v==="C") return c ? "Degustación sin costo para el equipo de "+e.nombre
-                       : "Degustación de viandas para "+e.nombre+" — ¿con quién la coordino?";
-  if(v==="B") return c ? "Comedor y viandas para "+e.nombre
-                       : "Servicio de comedor y viandas para "+e.nombre;
+  const c=contactoCanal(e,"mail");
   return c ? "Alimentación del personal en "+e.nombre
            : "¿Quién gestiona la alimentación del personal en "+e.nombre+"?";
 }
 function cuerpoMail(e){
-  const c=contactoCanal(e,"mail"), v=st.variante;
+  const c=contactoCanal(e,"mail");
   let t="";
   if(c){
-    if(v==="C"){
-      t+="Hola "+pilaDe(c.nombre)+": le propongo algo simple.\n\n";
-      t+="Coordinamos una degustación sin costo para la gente que usted elija: prueban nuestras viandas y el menú de comedor, y con eso decide si vale la pena hablar de números.\n\n";
-      t+="Somos "+miEmpresa()+": hace 10 años cocinamos para empresas del cordón industrial ("+CLIENTES_REF+", entre otras), con "+PLANTAS+", servicio a cargo de nutricionistas y entregas por turno.\n\n";
-      t+="¿Qué día le queda cómodo? Con una fecha me arreglo.\n\n";
-    }else if(v==="B"){
-      t+="Hola "+pilaDe(c.nombre)+", ¿cómo le va?\n\n";
-      t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años cocinamos para plantas del cordón industrial ("+zonaDe(e.localidad)+").\n\n";
-      t+=lineaArea(c);
-      t+="Lo que nos diferencia, en corto: "+PLANTAS+" con tecnología de última generación, menús diseñados y supervisados por nutricionistas, dietas especiales sin trámite extra y entregas por turno (también nocturnos). Y si no hay lugar para un comedor, lo resolvemos: los montamos en espacios reducidos.\n\n";
-      t+="¿Le sirve que le acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.\n\n";
-    }else{
-      t+="Hola "+pilaDe(c.nombre)+", ¿cómo le va?\n\n";
-      t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
-      t+=lineaArea(c);
-      t+="Cocinamos con tecnología de última generación en "+PLANTAS+"; el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.\n\n";
-      t+="¿Le sirve que le acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.\n\n";
-    }
+    t+="Hola "+pilaDe(c.nombre)+", ¿cómo le va?\n\n";
+    t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
+    t+=lineaArea(c);
+    t+="Cocinamos con tecnología de última generación en "+PLANTAS+"; el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.\n\n";
+    t+="¿Le sirve que le acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.\n\n";
     t+=BAJA+"\n\nSaludos,\n"+firma();
   }else{
-    if(v==="C"){
-      t+="Hola, buen día.\n\n";
-      t+="Somos "+miEmpresa()+" (hace 10 años damos comedor y viandas en el cordón industrial, con "+PLANTAS+") y queremos ofrecerle a "+e.nombre+" una degustación sin costo, para que el personal pruebe el servicio antes de hablar de números.\n\n";
-      t+="¿Me indican con quién coordinarla (Compras o Recursos Humanos), o le reenvían este correo?\n\n";
-    }else if(v==="B"){
-      t+="Hola, buen día.\n\n";
-      t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años cocinamos para plantas del cordón industrial ("+zonaDe(e.localidad)+").\n\n";
-      t+="¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?\n\n";
-      t+="Para esa persona, en dos líneas: "+PLANTAS+" con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno (también nocturnos); montamos comedores incluso en espacios reducidos. Con gusto acercamos números a medida y una degustación sin compromiso.\n\n";
-    }else{
-      t+="Hola, buen día.\n\n";
-      t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años damos comedor y viandas a empresas del cordón industrial ("+CLIENTES_REF+", entre otras).\n\n";
-      t+="¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?\n\n";
-      t+="Para esa persona, en dos líneas: "+PLANTAS+" con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno; montamos comedores incluso en espacios reducidos. Con gusto acercamos una propuesta y una degustación sin compromiso.\n\n";
-    }
+    t+="Hola, buen día.\n\n";
+    t+="Soy "+miNombre()+", de "+miEmpresa()+": hace 10 años damos comedor y viandas a empresas del cordón industrial ("+CLIENTES_REF+", entre otras).\n\n";
+    t+="¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?\n\n";
+    t+="Para esa persona, en dos líneas: "+PLANTAS+" con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno; montamos comedores incluso en espacios reducidos. Con gusto acercamos una propuesta y una degustación sin compromiso.\n\n";
     t+=BAJA+"\n\n¡Muchas gracias!\n\n"+firma();
   }
   return t;
@@ -665,11 +637,6 @@ function vistaCampana(){
       <option value="mail" ${canal==="mail"?"selected":""}>✉️ Mail (${pend.mail.length} pendientes)</option>
       <option value="linkedin" ${canal==="linkedin"?"selected":""}>💼 LinkedIn (${pend.linkedin.length})</option>
       <option value="whatsapp" ${canal==="whatsapp"?"selected":""}>📱 WhatsApp (${pend.whatsapp.length})</option>
-    </select>
-    <select id="var-camp" title="Versión del mensaje (se registra en cada envío para comparar respuesta)">
-      <option value="A" ${st.variante==="A"?"selected":""}>Versión A — clientes</option>
-      <option value="B" ${st.variante==="B"?"selected":""}>Versión B — directa</option>
-      <option value="C" ${st.variante==="C"?"selected":""}>Versión C — degustación</option>
     </select>
     <label class="campo" style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="solo-nuevas" ${st.soloNuevas?"checked":""} style="width:auto"> solo cuentas nunca contactadas</label>
     ${canal==="mail"?`<button data-action="merge-csv" title="CSV con destinatario, asunto y cuerpo por fila">CSV p/ mail merge</button>`:""}
@@ -738,7 +705,7 @@ function registrarEnvioCampana(e){
   const quien=c?c.nombre:(canal==="mail"?"casilla institucional":"tel "+e.tel);
   return st.db.collection("actividades").doc(nuevoId("a")).set({
     emp:e.id, con:c?c.id:null, tipo, campana:true, variante:st.variante,
-    resumen:"Contacto inicial (campaña, versión "+st.variante+") por "+canal+" a "+quien,
+    resumen:"Contacto inicial (campaña) por "+canal+" a "+quien,
     proximo:"seguimiento si no responde", f_proximo:sumarDias(hoyISO(),7),
     estado:"abierta", por:st.vendedor, por_id:st.userId, f:hoyISO(), ts:Date.now(),
   });
@@ -864,7 +831,6 @@ document.addEventListener("change", ev=>{
   else if(t.id==="o-cuentas"){ st.filtros.oCuentas=t.value; render(); }
   else if(t.id==="f-con"){ st.filtros.areaCon=t.value; st.filtros.nCon=80; render(); }
   else if(t.id==="canal-camp"){ st.canal=t.value; st.nCamp=30; render(); }
-  else if(t.id==="var-camp"){ st.variante=t.value; try{localStorage.setItem("variante",t.value);}catch(_){} render(); }
   else if(t.id==="solo-nuevas"){ st.soloNuevas=t.checked; st.nCamp=30; render(); }
   else if(t.id==="vendedor"){ st.vendedor=t.value.trim(); try{localStorage.setItem("vendedor",st.vendedor);}catch(_){} }
 });

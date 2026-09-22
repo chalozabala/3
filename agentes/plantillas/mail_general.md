@@ -1,24 +1,27 @@
-**Asunto:** Servicio de comedor y viandas para {{EMPRESA}}
+**Asunto:** ¿Quién gestiona la alimentación del personal en {{EMPRESA}}?
 
-Estimados,
+Hola, buen día.
 
-Me comunico desde [TU EMPRESA], proveedores de servicio de comedor y viandas
-para empresas del cordón industrial ({{ZONA_REFERENCIA}}).
+Soy [TU NOMBRE], de Good Food S.A.: hace 10 años damos comedor y viandas a
+empresas del cordón industrial (Sidersa, Inbelt, Pecam, Dinale y el
+Policlínico Unión, entre otras).
 
 {{GANCHO}}
 
-Quería hacerles llegar nuestra carta de presentación y pedirles, si es posible,
-el contacto del sector que gestiona el servicio de alimentación del personal
-(Compras o Recursos Humanos), para acercarles una propuesta con degustación
-sin compromiso.
+¿Me podrían indicar quién gestiona la alimentación del personal (Compras o
+RRHH), o reenviarle este correo?
 
-Ofrecemos viandas individuales rotuladas o comedor in-company, con menú de
-rotación semanal, dietas especiales y logística propia para cumplir los
-horarios de cada turno.
+Para esa persona, en dos líneas: plantas propias en Rosario, Arroyo Seco y
+La Plata (Buenos Aires) con tecnología de última generación, menús a cargo de
+nutricionistas, dietas especiales y entregas por turno; montamos comedores
+incluso en espacios reducidos. Con gusto acercamos una propuesta y una
+degustación sin compromiso.
 
-Desde ya, muchas gracias.
+(Si no es el área indicada o prefieren no recibir información, respondan este
+correo y no los molesto más.)
 
-Saludos cordiales,
+¡Muchas gracias!
 
 [TU NOMBRE]
-[TU EMPRESA] — [TELÉFONO] — [MAIL] — [WEB O CARPETA DE PRESENTACIÓN]
+Good Food S.A. — comedores y viandas industriales
+Rosario · Arroyo Seco · La Plata (Bs. As.) · [TELÉFONO]

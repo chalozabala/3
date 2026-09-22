@@ -32,12 +32,11 @@ body{
 .envoltura{max-width:900px;margin:0 auto;padding:24px 16px 48px}
 h1{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;font-size:26px;font-weight:700;margin:0 0 4px;text-wrap:balance}
 .baja-cab{color:var(--tinta2);font-size:14px;margin:0 0 6px}
+.chip{display:inline-block;border-radius:999px;padding:2px 10px;font-size:11.5px;font-weight:600;vertical-align:2px;background:var(--ok-fondo);color:var(--ok)}
 .nota{background:var(--acento-fondo);color:var(--acento-tinta);border-radius:11px;padding:10px 14px;font-size:13.5px;margin:14px 0 26px}
-h2{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;font-size:19px;font-weight:700;margin:34px 0 4px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+h2{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;font-size:19px;font-weight:700;margin:34px 0 4px}
 h2:first-of-type{margin-top:8px}
-.cuando{color:var(--tinta2);font-size:13.5px;font-family:"Instrument Sans",system-ui,sans-serif;font-weight:500;margin:0 0 12px}
-.chip{display:inline-block;border-radius:999px;padding:2px 10px;font-size:11.5px;font-weight:600;vertical-align:2px}
-.chip.reco{background:var(--ok-fondo);color:var(--ok)}
+.cuando{color:var(--tinta2);font-size:13.5px;margin:0 0 12px}
 .par{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:860px){.par{grid-template-columns:1fr}}
 .mail{background:var(--superficie);border:1px solid var(--borde);border-radius:13px;overflow:hidden}
@@ -48,17 +47,16 @@ h2:first-of-type{margin-top:8px}
 .mail .cuerpo .var{color:var(--tinta2);font-style:italic}
 .tok{background:var(--token-fondo);color:var(--token);border-radius:6px;padding:0 5px;font-weight:600;font-style:normal;white-space:nowrap}
 .leyenda{color:var(--tinta2);font-size:13px;margin-top:22px}
-.corto{margin-top:12px}
 footer{margin-top:36px;border-top:1px solid var(--borde);padding-top:14px;color:var(--tinta2);font-size:13px}
 </style>
 
 <div class="envoltura">
-<h1>Mensajes de la campaña</h1>
+<h1>Mensajes de la campaña <span class="chip">definitivos · 22-09-2026</span></h1>
 <p class="baja-cab">Good Food S.A. · contacto inicial · trato de usted · nada se envía solo</p>
-<div class="nota">Estos son los textos exactos que genera la app. Los <span class="tok">{tokens}</span> se completan solos con los datos de cada cuenta y con "Mis datos". En la app: <b>Campaña → selector "Versión" → Ver mensaje</b>. Cada envío queda registrado con su versión, para después comparar cuál responde mejor.</div>
+<div class="nota">Este es el texto validado que genera la app en <b>todas</b> las cuentas. Los <span class="tok">{tokens}</span> se completan solos con los datos de cada empresa y con "Mis datos". Para cambiar una palabra: pedírselo a Claude y se actualiza en toda la campaña.</div>
 
-<h2>Versión A — Clientes <span class="chip reco">recomendada para la 1.ª tanda</span></h2>
-<p class="cuando">El argumento es la prueba social: "ya le cocinamos a estos". Ideal para el primer barrido.</p>
+<h2>El mail</h2>
+<p class="cuando">Con nombre va la columna izquierda (21 decisores de Compras/RRHH con mail confirmado); sin nombre va la derecha, pensada para que la casilla institucional te derive o reenvíe.</p>
 <div class="par">
   <div class="mail"><div class="quien">A decisor con nombre (Compras / RRHH)</div>
     <div class="asunto"><small>Asunto</small>Alimentación del personal en <span class="tok">{EMPRESA}</span></div>
@@ -99,84 +97,14 @@ Good Food S.A. — comedores y viandas industriales
 Rosario · Arroyo Seco · La Plata (Bs. As.) · <span class="tok">{tel}</span></div></div>
 </div>
 
-<h2>Versión B — Directa</h2>
-<p class="cuando">Sin nombres de clientes; el peso va en los diferenciales. Para comparar contra la A, o si algún cliente prefiere no ser mencionado.</p>
+<h2>LinkedIn y WhatsApp</h2>
 <div class="par">
-  <div class="mail"><div class="quien">A decisor con nombre</div>
-    <div class="asunto"><small>Asunto</small>Comedor y viandas para <span class="tok">{EMPRESA}</span></div>
-    <div class="cuerpo">Hola <span class="tok">{Nombre}</span>, ¿cómo le va?
-
-Soy <span class="tok">{tu nombre}</span>, de Good Food S.A.: hace 10 años cocinamos para plantas del cordón industrial (<span class="tok">{zona}</span>).
-
-<span class="var">(línea según el área, igual que en A)</span>
-
-Lo que nos diferencia, en corto: plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires) con tecnología de última generación, menús diseñados y supervisados por nutricionistas, dietas especiales sin trámite extra y entregas por turno (también nocturnos). Y si no hay lugar para un comedor, lo resolvemos: los montamos en espacios reducidos.
-
-¿Le sirve que le acerque números cerrados a su dotación? También coordinamos una degustación para que el equipo pruebe antes de decidir, sin compromiso.
-
-(Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)
-
-Saludos,
-<span class="var">(firma igual que en A)</span></div></div>
-
-  <div class="mail"><div class="quien">A casilla institucional</div>
-    <div class="asunto"><small>Asunto</small>Servicio de comedor y viandas para <span class="tok">{EMPRESA}</span></div>
-    <div class="cuerpo">Hola, buen día.
-
-Soy <span class="tok">{tu nombre}</span>, de Good Food S.A.: hace 10 años cocinamos para plantas del cordón industrial (<span class="tok">{zona}</span>).
-
-¿Me podrían indicar quién gestiona la alimentación del personal (Compras o RRHH), o reenviarle este correo?
-
-Para esa persona, en dos líneas: plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires) con tecnología de última generación, menús a cargo de nutricionistas, dietas especiales y entregas por turno (también nocturnos); montamos comedores incluso en espacios reducidos. Con gusto acercamos números a medida y una degustación sin compromiso.
-
-(Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)
-
-¡Muchas gracias!
-
-<span class="var">(firma igual que en A)</span></div></div>
-</div>
-
-<h2>Versión C — Degustación primero</h2>
-<p class="cuando">La más audaz y la más corta: la oferta concreta arriba de todo. Para cuentas frías, o como segundo toque a quien no respondió A/B.</p>
-<div class="par">
-  <div class="mail"><div class="quien">A decisor con nombre</div>
-    <div class="asunto"><small>Asunto</small>Degustación sin costo para el equipo de <span class="tok">{EMPRESA}</span></div>
-    <div class="cuerpo">Hola <span class="tok">{Nombre}</span>: le propongo algo simple.
-
-Coordinamos una degustación sin costo para la gente que usted elija: prueban nuestras viandas y el menú de comedor, y con eso decide si vale la pena hablar de números.
-
-Somos Good Food S.A.: hace 10 años cocinamos para empresas del cordón industrial (Sidersa, Inbelt, Pecam, Dinale y el Policlínico Unión, entre otras), con plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires), servicio a cargo de nutricionistas y entregas por turno.
-
-¿Qué día le queda cómodo? Con una fecha me arreglo.
-
-(Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)
-
-Saludos,
-<span class="var">(firma igual que en A)</span></div></div>
-
-  <div class="mail"><div class="quien">A casilla institucional</div>
-    <div class="asunto"><small>Asunto</small>Degustación de viandas para <span class="tok">{EMPRESA}</span> — ¿con quién la coordino?</div>
-    <div class="cuerpo">Hola, buen día.
-
-Somos Good Food S.A. (hace 10 años damos comedor y viandas en el cordón industrial, con plantas propias en Rosario, Arroyo Seco y La Plata) y queremos ofrecerle a <span class="tok">{EMPRESA}</span> una degustación sin costo, para que el personal pruebe el servicio antes de hablar de números.
-
-¿Me indican con quién coordinarla (Compras o Recursos Humanos), o le reenvían este correo?
-
-(Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)
-
-¡Muchas gracias!
-
-<span class="var">(firma igual que en A)</span></div></div>
-</div>
-
-<h2>LinkedIn y WhatsApp <span class="chip reco">iguales en las tres versiones</span></h2>
-<div class="par corto">
   <div class="mail"><div class="quien">Nota de invitación en LinkedIn (máx. 300 caracteres, envío manual)</div>
     <div class="cuerpo">Hola <span class="tok">{Nombre}</span>, soy <span class="tok">{tu nombre}</span> de Good Food: hace 10 años damos comedor y viandas en el cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). Me gustaría sumarlo como contacto por si el tema entra en agenda en <span class="tok">{EMPRESA}</span>. ¡Saludos!</div></div>
   <div class="mail"><div class="quien">WhatsApp (al celular de la cuenta)</div>
     <div class="cuerpo">Hola, ¿qué tal? Soy <span class="tok">{tu nombre}</span>, de Good Food (plantas en Rosario, Arroyo Seco y La Plata): hace 10 años hacemos comedor y viandas para empresas del cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). ¿Me indicás quién gestiona la alimentación del personal en <span class="tok">{EMPRESA}</span>? Quisiéramos acercarles una propuesta y una degustación sin costo. ¡Gracias!</div></div>
 </div>
 
-<p class="leyenda">Plan sugerido: 1.ª tanda con la <b>A</b> (20–25 mails, chip verde primero) · a los 2–3 días una tanda igual con la <b>B</b> · la <b>C</b> para cuentas chicas o segundo toque. Con ~50 envíos, comparamos respuestas por versión desde la bitácora.</p>
-<footer>Good Food S.A. · Campaña de contacto inicial · Los textos se editan pidiéndoselo a Claude; la app los aplica en todas las cuentas.</footer>
+<p class="leyenda">Arranque sugerido: 15–25 mails por día desde tu casilla, chip verde (✓ verificados) primero. Cada "✓ Enviado" agenda el seguimiento a 7 días en la pestaña Hoy.</p>
+<footer>Good Food S.A. · Campaña de contacto inicial · texto validado el 22-09-2026</footer>
 </div>

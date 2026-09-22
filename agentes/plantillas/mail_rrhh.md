@@ -1,26 +1,28 @@
-**Asunto:** Comedor / viandas para el personal de {{EMPRESA}} — degustación sin compromiso
+**Asunto:** Alimentación del personal en {{EMPRESA}}
 
 Hola {{NOMBRE_PILA}}, ¿cómo le va?
 
-Le escribo desde [TU EMPRESA]: damos servicio de comedor y viandas a empresas
-del cordón industrial ({{ZONA_REFERENCIA}}) y sé que la comida del personal
-suele caer en la mesa de Recursos Humanos.
+Soy [TU NOMBRE], de Good Food S.A. Hace 10 años damos servicio de comedor y
+viandas en el cordón industrial: hoy comen con nosotros los equipos de Sidersa,
+Inbelt, Pecam, Dinale y el Policlínico Unión, entre otros.
+
+Le escribo porque la alimentación del personal suele caer en la mesa de
+Recursos Humanos.
 
 {{GANCHO}}
 
-Lo que solemos resolverle a RRHH:
+Cocinamos con tecnología de última generación en plantas propias en Rosario,
+Arroyo Seco y La Plata (Buenos Aires); el servicio está a cargo de
+nutricionistas y montamos comedores incluso en espacios reducidos.
 
-- Menú variado con rotación semanal y dietas especiales (celíacos, veganos,
-  hiposódicas) sin trámite extra para ustedes.
-- Cumplimiento de horarios por turno y refuerzos de último momento.
-- Un solo interlocutor y reportes mensuales de consumo por sector.
+¿Le sirve que le acerque números cerrados a su dotación? También coordinamos
+una degustación para que el equipo pruebe antes de decidir, sin compromiso.
 
-Si el tema está en agenda (o si el proveedor actual viene flojo), me encantaría
-acercarles una degustación para que el propio personal compare.
+(Si no es el área indicada o prefieren no recibir información, respondan este
+correo y no los molesto más.)
 
-¿Le parece si coordinamos una llamada corta esta semana?
-
-Saludos cordiales,
+Saludos,
 
 [TU NOMBRE]
-[TU EMPRESA] — [TELÉFONO] — [MAIL] — [WEB O CARPETA DE PRESENTACIÓN]
+Good Food S.A. — comedores y viandas industriales
+Rosario · Arroyo Seco · La Plata (Bs. As.) · [TELÉFONO]

@@ -554,14 +554,16 @@ function cuerpoMail(e){
     t+="Hola "+pilaDe(c.nombre)+", ¿cómo le va?\n\n";
     t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
     t+=lineaArea(c);
-    t+="Cocinamos con tecnología de última generación en "+PLANTAS+"; el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.\n\n";
+    t+="Nos gusta que la gente coma rico, sano y variado — al final, la comida es uno de los momentos más esperados del turno. Los menús los arman nuestras nutricionistas, con opciones para celíacos, veganos y toda dieta especial, sin trámite extra para ustedes.\n\n";
+    t+="Todo sale fresco, cada día, de nuestras "+PLANTAS+", equipadas con tecnología de última generación. Llegamos a todos los turnos —también el nocturno— y si hay poco espacio en la planta, no es problema: montamos comedores hasta en lugares reducidos.\n\n";
     t+="¿Le interesa que le prepare una propuesta a medida? Y si prefieren probar antes de decidir, coordinamos una degustación sin compromiso.\n\n";
     t+=BAJA+"\n\nSaludos,\n"+firma();
   }else{
     t+="Hola, buen día.\n\n";
     t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
     t+="Les escribo para que nos tengan en carpeta como proveedor del rubro.\n\n";
-    t+="Cocinamos con tecnología de última generación en "+PLANTAS+"; el servicio está a cargo de nutricionistas y montamos comedores incluso en espacios reducidos.\n\n";
+    t+="Nos gusta que la gente coma rico, sano y variado — al final, la comida es uno de los momentos más esperados del turno. Los menús los arman nuestras nutricionistas, con opciones para celíacos, veganos y toda dieta especial, sin trámite extra para ustedes.\n\n";
+    t+="Todo sale fresco, cada día, de nuestras "+PLANTAS+", equipadas con tecnología de última generación. Llegamos a todos los turnos —también el nocturno— y si hay poco espacio en la planta, no es problema: montamos comedores hasta en lugares reducidos.\n\n";
     t+="¿Les interesa que les prepare una propuesta a medida? Y si prefieren probar antes de decidir, coordinamos una degustación sin compromiso.\n\n";
     t+=BAJA+"\n\nSaludos,\n"+firma();
   }

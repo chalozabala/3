@@ -10,9 +10,16 @@ Le escribo para que nos tengan en carpeta como proveedor del rubro.
 
 {{GANCHO}}
 
-Cocinamos con tecnología de última generación en plantas propias en Rosario,
-Arroyo Seco y La Plata (Buenos Aires); el servicio está a cargo de
-nutricionistas y montamos comedores incluso en espacios reducidos.
+Nos gusta que la gente coma rico, sano y variado — al final, la comida es
+uno de los momentos más esperados del turno. Los menús los arman nuestras
+nutricionistas, con opciones para celíacos, veganos y toda dieta especial,
+sin trámite extra para ustedes.
+
+Todo sale fresco, cada día, de nuestras plantas propias en Rosario, Arroyo
+Seco y La Plata (Buenos Aires), equipadas con tecnología de última
+generación. Llegamos a todos los turnos —también el nocturno— y si hay poco
+espacio en la planta, no es problema: montamos comedores hasta en lugares
+reducidos.
 
 ¿Le interesa que le prepare una propuesta a medida? Y si prefieren probar
 antes de decidir, coordinamos una degustación sin compromiso.

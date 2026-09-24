@@ -15,8 +15,8 @@ Cocinamos con tecnología de última generación en plantas propias en Rosario,
 Arroyo Seco y La Plata (Buenos Aires); el servicio está a cargo de
 nutricionistas y montamos comedores incluso en espacios reducidos.
 
-¿Le sirve que le acerque números cerrados a su dotación? También coordinamos
-una degustación para que el equipo pruebe antes de decidir, sin compromiso.
+¿Le interesa que le prepare una propuesta a medida? Y si prefieren probar
+antes de decidir, coordinamos una degustación sin compromiso.
 
 (Si no es el área indicada o prefieren no recibir información, respondan este
 correo y no los molesto más.)

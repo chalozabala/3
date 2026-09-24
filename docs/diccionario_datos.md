@@ -54,6 +54,6 @@ Una fila por interacción. Es la fuente de verdad del pipeline vivo; la fila de 
 1. Columna DIRECCIÓN desfasada respecto de CLIENTE (excluida del maestro).
 2. Duplicados: `Gerdau — Planta Pérez` = `Sipar`; `EPRECCO PIÑEIRO` = `EPRECO`; `Grupo Brayco` = `SEMAC`; `Calidad Asegurada en Aguas` = grupo S&D/SADE; `ACEIRA???` = Acindar.
 3. `Adient` cerró su planta (06/2026): no prospectar.
-4. Identidad a confirmar: SMP, IRT, Mercator, PECAM, Selecta, ABC Comex, rava, TENSAR, DANES, FIUME, EXPRESS CORP, DYSCON, CAI, ACA Venado.
+4. Identidad a confirmar: SMP, IRT, Mercator, Selecta, ABC Comex, rava, TENSAR, DANES, FIUME, EXPRESS CORP, CAI, ACA Venado. (PECAM y DYSCON resueltos: son clientes actuales.)
 5. `Victoria Rios Ordoñez` (Unilever) no es RRHH (corregido en bd_contactos).
 6. `Matías Fernández` (compras Electrolux) podría ser de Curitiba (BR): verificar.

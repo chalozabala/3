@@ -4,7 +4,7 @@ EMP-0002,YPF,Hoja 1,San Lorenzo,,,,,,,,,,TerminalSanLorenzo@ypf.com,,,,,,Compras
 EMP-0003,YO AMO MI CIUDAD,Hoja 1,San Lorenzo,,,,,,,,,,yoamomiciudad.sanlorenzo@gmail.com,,,,,,Canal: Facebook yoamomiciudad.sanlorenzo + gmail,0
 EMP-0004,YGS CAPACITACIÓN Y CONSULTORÍA,Hoja 1,Capitán Bermúdez,,,,,,,,,,info@ygs-group.com.ar,,,,,,info@ygs-group.com.ar; página LinkedIn ~5K seguidores,0
 EMP-0005,WILLIAMS ENTREGAS S.A.,Hoja 1,San Lorenzo,,,,,,,,,,rrhh@williamsagroservicios.com.ar,,,,,,,3
-EMP-0006,WERK PIÑEIRO,Hoja 1,,1,,NO,,,,,,,,,,,,,"Constructora rosarina (desde 1970, obra pública y edificios). 'PIÑEIRO' prob. refiere a obra en Piñero (a validar). info@werk.com.ar / 0341 441-0078; ",0
+EMP-0006,WERK PIÑEIRO,Hoja 1,,1,CLIENTE ACTUAL,NO,,,,,,,,,,,,,"Constructora rosarina (desde 1970, obra pública y edificios). 'PIÑEIRO' prob. refiere a obra en Piñero (a validar). info@werk.com.ar / 0341 441-0078;  | Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
 EMP-0007,WATCHMAN,Hoja 1,Rosario,,,,,,,,,,avalero@watchman.com.ar,,,,,,,1
 EMP-0008,Vipal Cauchos,Hoja 1,Pérez,,,,,,,,,,vipal@vipal.com.ar,,,,,,Solo perfiles Brasil; vipal@vipal.com.ar; FB Vipal Argentina Pérez,0
 EMP-0009,VENTILAR S.A.,Hoja 1,San Lorenzo,,,,,,,,,,ventilarsa@ventilarsa.com.ar,,,,,,ventilar@ventilar.com; tel 341 7301000,0
@@ -21,7 +21,7 @@ EMP-0019,TERSUAVE,Hoja 1,,3,,NO,,si,,,,,,3415627117,eugenia,,,,No apareció ning
 EMP-0020,Ternium — Centro Industrial San Nicolás,Hoja 1,San Nicolás,,,,,,,,,,,,,,,,,3
 EMP-0021,Ternium — Centro Industrial Rosario,Hoja 1,Rosario,,,,,,,,,,,,,,,,,1
 EMP-0022,TERMINALES Y SERVICIOS,Hoja 1,Timbúes,,,,,,,,,,postulaciones@terminalesyservicios.com.ar,,,,,,,1
-EMP-0023,Terminal Puerto Rosario (TPR),Hoja 1,Rosario,,,,,,,,,,info@tpr.com.ar,,,,,,,3
+EMP-0023,Terminal Puerto Rosario (TPR),Hoja 1,Rosario,,CLIENTE ACTUAL,,,,,,,,info@tpr.com.ar,,,,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",3
 EMP-0024,TERMINAL 6,Hoja 1,Puerto General San Martín,,,,,,,,,,term6@terminal6.com.ar,,,~271,,,term6@terminal6.com.ar; LinkedIn company Terminal 6 (3.680 seg.),2
 EMP-0025,TENSAR,Hoja 1,,2,,NO,,,,,,,,,,,NO IDENTIFICADA — falta CUIT/dirección,,"Solo aparece Tensar Corporation (geomallas, EE.UU.). Pasame CUIT o dirección de tu base y la vuelvo a buscar",0
 EMP-0026,TECNUAR S.R.L.,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,Pista socios: BO Santa Fe 04-05-2009,0
@@ -51,12 +51,12 @@ EMP-0049,SERVICIOS ER S.R.L.,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,,0
 EMP-0050,SERVICIOS ELECTRICOS MAYLA,Hoja 1,Rosario,,,,,,,,,,info@maylasrl.com.ar,,,,,,info@maylasrl.com.ar,0
 EMP-0051,SERVI RIO,Hoja 1,Aldao,,,,,,,,,,sanlorenzo@servirio.com.ar,,,,,,Empresa familiar; Info@servirio.com; (03476) 48-2113; socia Cámara SL,0
 EMP-0052,SERVAL S.R.L.,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,Pedir contacto vía Cámara de Comercio SL (camara-sl.org.ar),0
-EMP-0053,SEMAC CONSTRUCCIONES S.A.,Hoja 1,San Lorenzo,,,,,,,,,,obras@brayco.com.ar,,,100-200 (grupo Brayco),,,,0
+EMP-0053,SEMAC CONSTRUCCIONES S.A.,Hoja 1,San Lorenzo,,CLIENTE ACTUAL,,,,,,,,obras@brayco.com.ar,,,100-200 (grupo Brayco),,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
 EMP-0054,SELECTA,Hoja 1,San Lorenzo,,,,,,,,,,bruno.gazze@selectaargentina.com,,,,"VERIFICAR: es personal temporario, no helados",,,1
 EMP-0055,SEGURIDAD Y RESGUARDO S.R.L.,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,,1
 EMP-0056,SAVYC S.A.,Hoja 1,Rosario,,,,,,,,,,gerencia@savycsa.com.ar,,,,,,,1
 EMP-0057,SAURO CONSTRUCCIONES S.R.L.,Hoja 1,Rosario,,,,,,,,,,hernanobras@hotmail.com,,,,,,,1
-EMP-0058,SANIMAT PIÑEIRO,Hoja 1,,1,arranca oct,si,aceptada,no,,,,,,3416138482,abbud turco (titualar),,,,,0
+EMP-0058,SANIMAT PIÑEIRO,Hoja 1,,1,CLIENTE ACTUAL,si,aceptada,no,,,,,,3416138482,abbud turco (titualar),,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
 EMP-0059,Sacchi,Hoja 1,Pérez,,,,,,,,,,info@sacchiweb.com.ar,,,,,,"Sacchi Hnos, art. de limpieza; WA 341 583-7991; misma dirección que Rosarpin",0
 EMP-0060,S&D OBRAS Y SERVICIOS S.A.,Hoja 1,Rosario,,,,,,,,,,carlosdestefanis@sdingenieria.com.ar,,,,,,,2
 EMP-0061,RV OBRAS Y SERVICIOS S.A.,Hoja 1,Alvear,,,,,,,,,,rtorres@suelosyescorias.com,,,,,,,1
@@ -103,8 +103,8 @@ EMP-0101,OLIMAR,Hoja 1,San Lorenzo,,,,,,,,,,olimar_sanlorenzo@yahoo.com.ar,,,,,,
 EMP-0102,OLEXGLOBAL S.A.,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,,1
 EMP-0103,OLEOHIDRAULICA MARWAL,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,"(El M. Cuitiño hallado es de Transportes Marwal, otra empresa)",0
 EMP-0104,OIL CONTROL S.A.,Hoja 1,San Lorenzo,,,,,,,,,,info@oilcontrol.com.ar,,,,,,info@oilcontrol.com.ar; web JS sin contenido legible,0
-EMP-0105,OBRING AEROPUERTO,Hoja 1,,1,,NO,,,,,,,,,,,,,,0
-EMP-0106,OBRING,Hoja 1,,1,NECESITAMOS UNA REUNION PRESENCIAL,NO,,,,,,,,,,,,,,1
+EMP-0105,OBRING AEROPUERTO,Hoja 1,,1,CLIENTE ACTUAL,NO,,,,,,,,,,,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
+EMP-0106,OBRING,Hoja 1,,1,CLIENTE ACTUAL,NO,,,,,,,,,,,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",1
 EMP-0107,NUEVO VICENTIN ARGENTINA,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,,2
 EMP-0108,NOURYON,Hoja 1,San Lorenzo,,,,,,,,,,info@nouryon.com,,,,,,,4
 EMP-0109,NN INGENIERÍA,Hoja 1,San Lorenzo,,,,,,,,,,nningenieria@outlook.com,,,,,,,1
@@ -166,7 +166,7 @@ EMP-0164,INGENIERÍA BOGGIO S.A.,Hoja 1,San Lorenzo,,,,,,,,,,sanlorenzo@ingenier
 EMP-0165,INGENIERIA & PILOTES S.R.L.,Hoja 1,Rosario,,,,,,,,,,licitaciones@ingenieriaypilotes.com.ar,,,,,,38 empleados + operarios en obra = buen fit; Admin 0341-152812000,0
 EMP-0166,ING. RINALDI Y ASOC. S.A,Hoja 1,Rosario,,,,,,,,,,milagros@rinaldiconstrucciones.com,,,,,,,2
 EMP-0167,ING. PELLEGINET S.A.,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,Sin web; pendiente re-barrido,0
-EMP-0168,ING. PEDRO MINERVINO S.A.,Hoja 1,Rosario,,,,,,,,,,administracion@minervinosa.com.ar,,,,,,,1
+EMP-0168,ING. PEDRO MINERVINO S.A.,Hoja 1,Rosario,,CLIENTE ACTUAL,,,,,,,,administracion@minervinosa.com.ar,,,,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",1
 EMP-0169,INFYA SRL,Hoja 1,Pérez,,,,,,,,,,administracion@infyasrl.com.ar,,,,,,Planta de tableros/montajes con ISO: fit viandas; 341 681-6000; info@infya.ar,0
 EMP-0170,INDUSTRIAS SECCO,Hoja 1,,1,,NO,,,,,,,,,,+2000,,,+2000 empleados; compras@secco.com.ar para alta de proveedores; 0341 409-4000; RRHH vía secco.hiringroom.com,3
 EMP-0171,INDUSOIL SERRVICIOS S.R.L.,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,Web vacía; pendiente,0
@@ -188,7 +188,7 @@ EMP-0186,Grupo Oroño,Hoja 1,Rosario,,,,,,,,,,info@grupoorono.com.ar,,,,,,,1
 EMP-0187,Grupo La Emilia / Motomel,Hoja 1,La Emilia (San Nicolás),,,,,,,,,,responde@motomel.com.ar,,,,,,,3
 EMP-0188,GRUPO DH,Hoja 1,Capitán Bermúdez,,,,,,,,,,info@dhsh.com.ar,,,,,,,1
 EMP-0189,GRUPO DELCO S.R.L.,Hoja 1,Rosario,,,,,,,,,,delco@delcosrl.com.ar,,,,,,Constructora obra pública; delco@delcosrl.com.ar,0
-EMP-0190,GRUPO BRAYCO,Hoja 1,San Lorenzo,,,,,,,,,,info@brayco.com.ar,,,,Mismo grupo que SEMAC/Brajkovic,,100-200 empleados (Dunsguide): gran comedor potencial; obras@brayco.com.ar; LinkedIn company braycoargentina,2
+EMP-0190,GRUPO BRAYCO,Hoja 1,San Lorenzo,,CLIENTE ACTUAL,,,,,,,,info@brayco.com.ar,,,,Mismo grupo que SEMAC/Brajkovic,,"100-200 empleados (Dunsguide): gran comedor potencial; obras@brayco.com.ar; LinkedIn company braycoargentina | Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",2
 EMP-0191,GRUPO AMZ,Hoja 1,Granadero Baigorria,,,,,,,,,,amzrescate@gmail.com,,,,,,,1
 EMP-0192,GRIMACO S.R.L.,Hoja 1,Rosario,,,,,,,,,,eduardoraffo@grimaco.com.ar,,,,,,,1
 EMP-0193,GREEN LAB,Hoja 1,Rosario,,,,,,,,,,hola@greenlab.com.ar,,,,,,,1
@@ -220,16 +220,16 @@ EMP-0218,EVONIK,Hoja 1,,1,PRESENTACION ENVIADA,SI,SI,SI,VIANDA,VIANDERIA,,12/25,
 EMP-0219,ESTUDIO JURÌDICO BARRINAT,Hoja 1,San Lorenzo,,,,,,,,,,estudiobarrinataux@gmail.com,,,,,,"Chico, pero lleva RRHH de pymes: posible PRESCRIPTOR; WA 3476-397580",0
 EMP-0220,ESSENTY,Hoja 1,San Lorenzo,,,,,,,,,,veronicatamagno@gmail.com,,,,,,,1
 EMP-0221,EQUIPAMIENTO SAN LORENZO,Hoja 1,San Lorenzo,,,,,,,,,,ventas@equipamientosanlorenzo.com,,,,,,Control de derrames/defensas portuarias; ventas@equipamientosanlorenzo.com,0
-EMP-0222,EPRECO,Hoja 1,,1,ANDRES,NO,,,,,,,,,,501-1000 (LinkedIn),,,,1
-EMP-0223,EPRECCO PIÑEIRO,Hoja 1,,1,arranca oct,si,aceptado,no,vianda,papagayo,1309,,,3415029950,marcelo titular,,DUPLICADO de EPRECO,,,0
+EMP-0222,EPRECO,Hoja 1,,1,CLIENTE ACTUAL,NO,,,,,,,,,,501-1000 (LinkedIn),,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",1
+EMP-0223,EPRECCO PIÑEIRO,Hoja 1,,1,CLIENTE ACTUAL,si,aceptado,no,vianda,papagayo,1309,,,3415029950,marcelo titular,,DUPLICADO de EPRECO,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
 EMP-0224,ELECTRO CONSTRUCTORA S.R.L.,Hoja 1,Rosario,,,,,,,,,,federico@electroconstructorasrl.com.ar,,,,,,,1
 EMP-0225,EL LIBERTADOR,Hoja 1,San Lorenzo,,,,,,,,,,operaciones@ellibertador.net,,,,,,Traslados/fletes; 03476-428747,0
 EMP-0226,EL HAUAR,Hoja 1,San Lorenzo,,,,,,,,,,p_mayotto@elahuar.com,,,,,,,1
 EMP-0227,EDILIZIA S.A.,Hoja 1,Rosario,,,,,,,,,,administracion@edilizia.com.ar,,,,,,,1
-EMP-0228,EDECA PIÑEIRO,Hoja 1,,1,,NO,,,,,,,,,,,,,,1
+EMP-0228,EDECA PIÑEIRO,Hoja 1,,1,CLIENTE ACTUAL,NO,,,,,,,,,,,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",1
 EMP-0229,ECOAIRES,Hoja 1,Funes,,,,,,,,,,marcos@ecoaires.com.ar,,,,,,,1
 EMP-0230,ECA INGENIERÍA,Hoja 1,Puerto General San Martín,,,,,,,,,,,,,,,,Opera planta de revisión técnica; 3476-456000,0
-EMP-0231,DYSCON,Hoja 1,,1,enviado,NO,,no,,,,,,,,,NO IDENTIFICADA,,Pasame CUIT o localidad,0
+EMP-0231,DYSCON,Hoja 1,,1,CLIENTE ACTUAL,NO,,no,,,,,,,,,,,"Pasame CUIT o localidad | Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
 EMP-0232,DUAMAK S.A.,Hoja 1,Rosario,,,,,,,,,,md@duamak.com.ar,,,,,,,1
 EMP-0233,Droguería 20 de Junio,Hoja 1,Pérez,,,,,,,,,,info@drogueria20dejunio.com.ar,,,,,,,1
 EMP-0234,Dreyfus,Hoja 1,,3,,NO,,,,,,,,,,,,,,0
@@ -248,7 +248,7 @@ EMP-0246,CRISKEY,Hoja 1,San Lorenzo,,,,,,,,,,,,,,,,Sin rastro web ni cámara,0
 EMP-0247,CREAR SOLUCIONES Y SERVICIOS,Hoja 1,San Lorenzo,,,,,,,,,,crearsolucionesyservicios@gmail.com,,,,,,Mantenimiento edilicio; WA 3476661565,0
 EMP-0248,CRAVER’S TOURS,Hoja 1,Rosario,,,,,,,,,,craverogabriel@hotmail.com,,,,,,,1
 EMP-0249,CRABSA S.A.,Hoja 1,Rosario,,,,,,,,,,crabsa@fibertel.com.ar,,,,,,,1
-EMP-0250,COTRASER LTDA.,Hoja 1,Rosario,,,,,,,,,,cotralyfltda@hotmail.com,,,,,,Cooperativa de trabajo de mantenimiento,0
+EMP-0250,COTRASER LTDA.,Hoja 1,Rosario,,CLIENTE ACTUAL,,,,,,,,cotralyfltda@hotmail.com,,,,,,"Cooperativa de trabajo de mantenimiento | Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
 EMP-0251,CORTEVA AGRISCIENCE,Hoja 1,Puerto Gral. San Martín,,,,,,,,,,infoargentina@corteva.com,,,+120 operarios planta,,,,1
 EMP-0252,CORREO ANDREANI,Hoja 1,San Lorenzo,,,,,,,,,,gconesa@andreani.com,,,,,,,2
 EMP-0253,Cormetal S.A.,Hoja 1,Pérez,,,,,,,,,,cormetal@cormetalsa.com.ar,,,,,,No confundir con Cormetal de Villa María; WA +54 341 2154694,0
@@ -266,7 +266,7 @@ EMP-0264,Condor Group,Hoja 1,Pérez,,,,,,,,,,condor@condorgroup.com.ar,,,,,,,1
 EMP-0265,Colvinil,Hoja 1,Pérez,,,,,,,,,,info@colvinil.com.ar,,,,,,Adhesivos/pinturas +37 años; administracion@colvinil.com.ar; WA 341 5504370,0
 EMP-0266,COIRINI,Hoja 1,,1,,NO,,,,,,,,,,,,,,1
 EMP-0267,COFCO INTERNATIONAL,Hoja 1,Puerto General San Martín,,,,,,,,,,info@cofcointernational.com,,,,,,,4
-EMP-0268,COCIVIAL S.A.,Hoja 1,Rosario,,,,,,,,,,cocivial@cocivial.com.ar,,,,,,,1
+EMP-0268,COCIVIAL S.A.,Hoja 1,Rosario,,CLIENTE ACTUAL,,,,,,,,cocivial@cocivial.com.ar,,,,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",1
 EMP-0269,CLOROMIL,Hoja 1,San Lorenzo,,,,,,,,,,movilclormil@gmail.com,,,,,,,1
 EMP-0270,CISB,Hoja 1,Rosario,,,,,,,,,,info@cisb.com.ar,,,,,,Contacto directo: alejandra@cisb.com.ar; WA 341-6911691; informática,0
 EMP-0271,CIA. ROSARINA DE DESOBSTRUCCIONES S.R.L.,Hoja 1,Rosario,,,,,,,,,,estelacoria1@hotmail.com,,,,,,,1
@@ -293,7 +293,7 @@ EMP-0291,BUNGE NORDLINK,Hoja 1,,1,,SI,SI,SI,,,,,silvia.garello@bunge.com,,,,,,,0
 EMP-0292,BRUMONT S.A.,Hoja 1,Rosario,,,,,,,,,,pmontaldo@brumont.com.ar,,,,,,,1
 EMP-0293,BRIMAX,Hoja 1,Rosario,,,,,,,,,,info@brimaxargentina.com.ar,,,,,,,1
 EMP-0294,BRICKET,Hoja 1,,,PRESENTACION ENVIADA,SI,NO,,,,,,VENTAS@briket.com.ar,,,~420 operarios,,La tiene alguien,,1
-EMP-0295,BRAJKOVIC S.A.I.,Hoja 1,San Lorenzo,,,,,,,,,,obras@brayco.com.ar,,,,,,,0
+EMP-0295,BRAJKOVIC S.A.I.,Hoja 1,San Lorenzo,,CLIENTE ACTUAL,,,,,,,,obras@brayco.com.ar,,,,,,"Cliente actual de Arsa Catering (planilla clientes, 24-09-2026).",0
 EMP-0296,BORDO ARQUITECTURA S.R.L.,Hoja 1,Rosario,,,,,,,,,,nblanco@bordoarquitectura.com,,,,,,,1
 EMP-0297,BOERO,Hoja 1,,1,ENVIAR PRESUPUESTO,SI,SI,no,vianda/ convencer p/comedor,,,,apistoni@carlosboero.com.ar,3412215504,hermano de busy,,,VIANDAS/COMEDOR,,2
 EMP-0298,Bioxen,Hoja 1,Pérez,,,,,,,,,,info@bioxen.com.ar,,,,,,,1

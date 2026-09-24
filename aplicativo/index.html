@@ -193,7 +193,7 @@ const TIPOS_ACT = ["llamada","email","whatsapp","linkedin","visita","degustació
 /* ================= estado vivo ================= */
 const st = {
   db:null, dbListo:false, soloLectura:false, sinBase:false,
-  userId:null, meta:{}, conMeta:{}, acts:[], perfil:{},
+  userId:null, meta:{}, conMeta:{}, acts:[],
   vendedor:"", pendiente:false, canal:"mail", soloNuevas:true, nCamp:30, variante:"A",
   filtros:{ qCuentas:"", fCuentas:"trabajar", oCuentas:"az", nCuentas:60, qCon:"", areaCon:"todas", nCon:80, nAct:60 },
 };
@@ -299,7 +299,7 @@ function vistaHoy(){
     <a class="ficha-num" href="#/actividad"><b>${actsSemana}</b><span>actividades, 7 días</span></a>
   </div>`;
 
-  if(pendCamp) h+=`<a class="callout" style="display:block" href="#/campana"><b>Campaña de contacto inicial:</b> ${pendCamp} cuentas con mail esperando el primer contacto →</a>`;
+  if(pendCamp) h+=`<a class="callout" style="display:block" href="#/campana"><b>Campaña de contacto inicial:</b> ${pendCamp} cuentas con mail sin primer contacto — registro →</a>`;
 
   h+=`<h2 class="seccion">Para hoy <small>seguimientos vencidos</small></h2><div class="lista">`;
   if(!vencidas.length) h+=`<div class="sin-datos">Nada vencido. ✔</div>`;
@@ -498,13 +498,6 @@ function vistaActividad(){
 
 /* ================= campaña de contacto inicial ================= */
 const CANALES={mail:"email", linkedin:"linkedin"};
-function zonaDe(loc){
-  const l=(loc||"").toUpperCase();
-  if(/SAN LORENZO|PUERTO|TIMB|RICARDONE|ALDAO/.test(l)) return "San Lorenzo–Timbúes";
-  if(/SAN NICOL|RAMALLO|CONSTITUCI/.test(l)) return "San Nicolás–Villa Constitución";
-  return "Gran Rosario";
-}
-function pilaDe(nombre){ return (String(nombre||"").trim().split(/\s+/)[0])||""; }
 function extraerMail(s){ const m=String(s||"").match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/); return m?m[0]:null; }
 function esEx(c){
   const cargo=String(c.cargo||"").trim().toUpperCase(), notas=String(c.notas||"").toUpperCase();
@@ -528,52 +521,6 @@ function destinoCanal(e, canal){
   if(canal==="mail"){ const c=contactoCanal(e,"mail"); return c?extraerMail(c.email):extraerMail(e.mail); }
   if(canal==="linkedin"){ const c=contactoCanal(e,"linkedin"); return c?c.linkedin:null; }
   return null;
-}
-const CLIENTES_REF="Sidersa, Inbelt, Pecam, Dinale y el Policlínico Unión";
-const BAJA="(Si no es el área indicada o prefieren no recibir información, respondan este correo y no los molesto más.)";
-function miEmpresa(){ return (st.perfil&&st.perfil.empresa)||"Arsa Catering"; }
-function miNombre(){ return (st.perfil&&st.perfil.nombre)||"[Tu nombre]"; }
-const PLANTAS="plantas propias en Rosario, Arroyo Seco y La Plata (Buenos Aires)";
-function firma(){
-  const p=st.perfil||{};
-  return miNombre()+"\n"+miEmpresa()+" — comedores y viandas industriales\nRosario · Arroyo Seco · La Plata (Bs. As.)"+(p.tel?" · "+p.tel:"")+(p.web?" · "+p.web:"");
-}
-function lineaArea(c){
-  if(!c) return "";
-  if(c.area==="RRHH") return "Le escribo porque la alimentación del personal suele caer en la mesa de Recursos Humanos.\n\n";
-  if(c.area==="Compras") return "Le escribo para que nos tengan en carpeta como proveedor del rubro.\n\n";
-  return "";
-}
-function asuntoMail(e){
-  return "Alimentación del personal en "+e.nombre;
-}
-function cuerpoMail(e){
-  const c=contactoCanal(e,"mail");
-  let t="";
-  if(c){
-    t+="Hola "+pilaDe(c.nombre)+", ¿cómo le va?\n\n";
-    t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
-    t+=lineaArea(c);
-    t+="Nos gusta que la gente coma rico, sano y variado — al final, la comida es uno de los momentos más esperados del turno. Los menús los arman nuestras nutricionistas, con opciones para celíacos, veganos y toda dieta especial, sin trámite extra para ustedes.\n\n";
-    t+="Todo sale fresco, cada día, de nuestras "+PLANTAS+", equipadas con tecnología de última generación. Llegamos a todos los turnos —también el nocturno— y si hay poco espacio en la planta, no es problema: montamos comedores hasta en lugares reducidos.\n\n";
-    t+="¿Le interesa que le prepare una propuesta a medida? Y si prefieren probar antes de decidir, coordinamos una degustación sin compromiso.\n\n";
-    t+=BAJA+"\n\nSaludos,\n"+firma();
-  }else{
-    t+="Hola, buen día.\n\n";
-    t+="Soy "+miNombre()+", de "+miEmpresa().replace(/\.+$/,"")+". Hace 10 años damos servicio de comedor y viandas en el cordón industrial: hoy comen con nosotros los equipos de "+CLIENTES_REF+", entre otros.\n\n";
-    t+="Les escribo para que nos tengan en carpeta como proveedor del rubro.\n\n";
-    t+="Nos gusta que la gente coma rico, sano y variado — al final, la comida es uno de los momentos más esperados del turno. Los menús los arman nuestras nutricionistas, con opciones para celíacos, veganos y toda dieta especial, sin trámite extra para ustedes.\n\n";
-    t+="Todo sale fresco, cada día, de nuestras "+PLANTAS+", equipadas con tecnología de última generación. Llegamos a todos los turnos —también el nocturno— y si hay poco espacio en la planta, no es problema: montamos comedores hasta en lugares reducidos.\n\n";
-    t+="¿Les interesa que les prepare una propuesta a medida? Y si prefieren probar antes de decidir, coordinamos una degustación sin compromiso.\n\n";
-    t+=BAJA+"\n\nSaludos,\n"+firma();
-  }
-  return t;
-}
-function notaLinkedIn(e){
-  const c=contactoCanal(e,"linkedin");
-  let t="Hola "+(c?pilaDe(c.nombre):"")+", soy "+miNombre()+" de Arsa Catering: hace 10 años damos comedor y viandas en el cordón industrial (cocinamos para Sidersa, Inbelt y Pecam, entre otras). Me gustaría sumarlo como contacto por si el tema entra en agenda en "+e.nombre+". ¡Saludos!";
-  if(t.length>300) t="Hola "+(c?pilaDe(c.nombre):"")+", soy "+miNombre()+" de Arsa Catering (comedor y viandas, 10 años en el cordón industrial). Me gustaría sumarlo como contacto por si el tema entra en agenda en "+e.nombre+". ¡Saludos!";
-  return t;
 }
 function chkDe(e, dest){ return (e.chk_dest && dest && e.chk_dest.toLowerCase()===String(dest).toLowerCase()) ? e.chk : ""; }
 function pendientesCampana(canal){
@@ -607,107 +554,55 @@ function enviadosCampana(canal){
   return st.acts.filter(a=>a.campana&&a.tipo===tipo).length;
 }
 function vistaCampana(){
-  const p=st.perfil||{}, canal=st.canal;
+  const canal=st.canal;
   const deshab = st.soloLectura||st.sinBase ? "disabled" : "";
   const pend={mail:pendientesCampana("mail"),linkedin:pendientesCampana("linkedin")};
   const lista=pend[canal];
-  const perfilCompleto=p.nombre&&p.empresa;
 
-  let h=`<details class="mas" ${perfilCompleto?"":"open"} style="margin:0 0 14px"><summary>Mis datos para los mensajes ${perfilCompleto?"· "+esc(p.nombre)+" — "+esc(p.empresa):"· completar primero"}</summary>
-    <form data-form="perfil"><div class="form-grilla" style="margin-top:8px">
-      <label class="campo">Tu nombre<input type="text" name="nombre" value="${esc(p.nombre||"")}" placeholder="ej: Gonzalo Zabala"></label>
-      <label class="campo">Empresa<input type="text" name="empresa" value="${esc(p.empresa||"")}" placeholder="Arsa Catering"></label>
-      <label class="campo">Teléfono<input type="text" name="tel" value="${esc(p.tel||"")}" placeholder="341 …"></label>
-      <label class="campo">Web / Instagram<input type="text" name="web" value="${esc(p.web||"")}" placeholder="opcional"></label>
-      <div class="ancho"><button class="primario" ${deshab}>Guardar mis datos</button></div>
-    </div></form></details>`;
-
-  h+=`<div class="filtros">
+  let h=`<div class="filtros">
     <select id="canal-camp">
-      <option value="mail" ${canal==="mail"?"selected":""}>✉️ Mail (${pend.mail.length} pendientes)</option>
+      <option value="mail" ${canal==="mail"?"selected":""}>✉️ Mail (${pend.mail.length} sin contactar)</option>
       <option value="linkedin" ${canal==="linkedin"?"selected":""}>💼 LinkedIn (${pend.linkedin.length})</option>
     </select>
     <label class="campo" style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="solo-nuevas" ${st.soloNuevas?"checked":""} style="width:auto"> solo cuentas nunca contactadas</label>
-    ${canal==="mail"?`<button data-action="merge-csv" title="CSV con destinatario, asunto y cuerpo por fila">CSV p/ mail merge</button>`:""}
-  </div>`;
-  let nOk=0,nGen=0,nRev=0;
-  if(canal==="mail") for(const e of lista){ const k=chkDe(e,destinoCanal(e,"mail")); if(k==="ok")nOk++; else if(k==="rev")nRev++; else nGen++; }
-  h+=`<div class="sub" style="margin-bottom:12px"><b>Nada se envía solo</b>: cada mensaje lo abrís, lo revisás y lo mandás vos. ${enviadosCampana(canal)} enviados por este canal · ${lista.length} pendientes${canal==="mail"?` (✓ ${nOk} verificados por dominio · ${nGen} casilla genérica · ⚠ ${nRev} a revisar)`:""}.
-  ${canal==="mail"?"Consejo: mandá de a 15–25 por día desde tu casilla para no caer en spam, empezando por los verificados.":""}
-  ${canal==="linkedin"?"La invitación se manda a mano desde tu cuenta: abrí el perfil, tocá Conectar → Añadir nota y pegá el texto.":""}</div>`;
-
-  if(!perfilCompleto) h+=`<div class="aviso">Completá <b>Mis datos</b> arriba: los mensajes salen con [corchetes] hasta que los cargues.</div>`;
+  </div>
+  <div class="sub" style="margin-bottom:12px">Registro de la campaña de contacto inicial. Los mensajes se preparan y envían por fuera (Gmail); acá solo se deja asentado: <b>✓ Enviado</b> registra la actividad con seguimiento a 7 días, <b>Omitir</b> saca la cuenta de la lista. ${enviadosCampana(canal)} enviados por este canal.</div>`;
 
   h+=`<div class="lista">`;
   for(const e of lista.slice(0,st.nCamp)){
     const c=contactoCanal(e,canal);
     const dest=destinoCanal(e,canal);
-    let quien, cuerpo, acciones;
+    let quien, sello="";
     if(canal==="mail"){
       const k=chkDe(e,dest);
-      const sello = k==="ok"?`<span class="chip ok">✓ verificado</span>` : k==="rev"?`<span class="chip crit">⚠ ${esc(e.chk_motivo||"revisar destinatario")}</span>` : `<span class="chip warn">casilla genérica</span>`;
-      quien=(c?`${esc(c.nombre)} — ${esc(c.cargo.slice(0,40))}`:`casilla institucional`)+" "+sello;
-      cuerpo=asuntoMail(e)+"\n\n"+cuerpoMail(e);
-      const href="mailto:"+encodeURIComponent(dest)+"?subject="+encodeURIComponent(asuntoMail(e))+"&body="+encodeURIComponent(cuerpoMail(e).replace(/\n/g,"\r\n"));
-      acciones=`<a class="chip acento" href="${esc(href)}">Abrir mail listo</a>`;
+      sello = k==="ok"?`<span class="chip ok">✓ verificado</span>` : k==="rev"?`<span class="chip crit">⚠ ${esc(e.chk_motivo||"revisar destinatario")}</span>` : `<span class="chip warn">casilla genérica</span>`;
+      quien=(c?`${esc(c.nombre)} — ${esc(c.cargo.slice(0,40))}`:`casilla institucional`)+` · <span style="overflow-wrap:anywhere">${esc(dest)}</span>`;
     }else{
       quien=`${esc(c.nombre)} — ${esc(c.cargo.slice(0,40))}`;
-      cuerpo=notaLinkedIn(e);
-      acciones=`<a class="chip acento" href="${esc(dest)}" target="_blank" rel="noopener">Abrir perfil</a>`;
     }
     h+=`<div class="tarjeta" data-emp="${e.id}">
       <div class="fila-titulo"><b><a href="#/cuenta/${e.id}">${esc(e.nombre)}</a></b>${e.localidad?`<span class="lugar">${esc(e.localidad)}</span>`:""}</div>
-      <div class="sub">→ ${quien}${canal==="mail"?` · <span style="overflow-wrap:anywhere">${esc(dest)}</span>`:""}</div>
-      <details style="margin-top:6px"><summary class="sub" style="cursor:pointer">Ver mensaje${canal==="linkedin"?` (${cuerpo.length}/300)`:""}</summary>
-        <pre style="white-space:pre-wrap;font:13px/1.45 'Instrument Sans',system-ui,sans-serif;background:var(--superficie2);border-radius:9px;padding:10px;margin:6px 0 0;overflow-wrap:anywhere">${esc(cuerpo)}</pre></details>
+      <div class="sub">→ ${quien} ${sello}</div>
       <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
-        ${acciones}
-        <button class="chico" data-action="copiar" data-emp="${e.id}">Copiar mensaje</button>
         <button class="chico" data-action="camp-enviado" data-emp="${e.id}" ${deshab}>✓ Enviado</button>
         <button class="chico" data-action="camp-omitir" data-emp="${e.id}" ${deshab}>Omitir</button>
       </div></div>`;
   }
   h+=`</div>`;
-  if(!lista.length) h+=`<div class="sin-datos">No queda ninguna cuenta pendiente por este canal. 🎉 Probá otro canal o destildá "solo nunca contactadas".</div>`;
+  if(!lista.length) h+=`<div class="sin-datos">No queda ninguna cuenta sin contactar por este canal. 🎉</div>`;
   if(lista.length>st.nCamp) h+=`<div class="pie-lista"><button data-action="mas-camp">Mostrar más (${lista.length-st.nCamp})</button></div>`;
   return h;
-}
-function textoCampana(e){
-  if(st.canal==="linkedin") return notaLinkedIn(e);
-  return asuntoMail(e)+"\n\n"+cuerpoMail(e);
-}
-async function copiarTexto(txt, btn){
-  let ok=false;
-  try{ await navigator.clipboard.writeText(txt); ok=true; }
-  catch(_){
-    try{ const ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); ok=document.execCommand("copy"); ta.remove(); }catch(_2){}
-  }
-  if(btn){ const t=btn.textContent; btn.textContent=ok?"Copiado ✓":"No se pudo"; setTimeout(()=>{btn.textContent=t;},1400); }
 }
 function registrarEnvioCampana(e){
   const canal=st.canal, tipo=CANALES[canal], c=contactoCanal(e,canal);
   const quien=c?c.nombre:(canal==="mail"?"casilla institucional":"tel "+e.tel);
   return st.db.collection("actividades").doc(nuevoId("a")).set({
-    emp:e.id, con:c?c.id:null, tipo, campana:true, variante:st.variante,
+    emp:e.id, con:c?c.id:null, tipo, campana:true,
     resumen:"Contacto inicial (campaña) por "+canal+" a "+quien,
     proximo:"seguimiento si no responde", f_proximo:sumarDias(hoyISO(),7),
     estado:"abierta", por:st.vendedor, por_id:st.userId, f:hoyISO(), ts:Date.now(),
   });
 }
-function exportarMerge(){
-  const pend=pendientesCampana("mail");
-  const cab=["empresa","destinatario","email","asunto","cuerpo"];
-  const filas=pend.map(e=>{ const c=contactoCanal(e,"mail");
-    return [e.nombre, c?c.nombre+" ("+c.cargo+")":"institucional", destinoCanal(e,"mail"), asuntoMail(e), cuerpoMail(e)]; });
-  const csv="﻿"+[cab,...filas].map(f=>f.map(v=>{v=String(v??"");return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}).join(",")).join("\n");
-  const nombre="campana_mail_"+hoyISO()+".csv";
-  if(st.modoLocal||!window.claude||!window.claude.use){ descargaDirecta(nombre,csv); return; }
-  window.claude.use("downloads").then(dl=>{
-    if(!dl){ alertaTemporal("La descarga no está disponible acá."); return; }
-    dl.save({filename:nombre, data:csv}).catch(err=>{ if(err&&err.code!=="declined") alertaTemporal("No se pudo exportar."); });
-  });
-}
-
 /* ================= router ================= */
 function ruta(){ return location.hash.replace(/^#\/?/,"") || "hoy"; }
 function render(){
@@ -763,8 +658,6 @@ document.addEventListener("click", ev=>{
   }
   else if(acc==="exportar"){ exportarCSV(b); }
   else if(acc==="mas-camp"){ st.nCamp+=40; render(); }
-  else if(acc==="merge-csv"){ exportarMerge(); }
-  else if(acc==="copiar"){ const e=EMP.get(b.dataset.emp); if(e) copiarTexto(textoCampana(e), b); }
   else if(acc==="camp-enviado"&&st.db){ const e=EMP.get(b.dataset.emp); if(e) escribir(()=>registrarEnvioCampana(e).then(render), b); }
   else if(acc==="camp-omitir"&&st.db){
     const e=EMP.get(b.dataset.emp); if(!e) return;
@@ -781,12 +674,7 @@ document.addEventListener("submit", ev=>{
   if(!st.db){ alertaTemporal("La base compartida no está disponible."); return; }
   const id=form.dataset.id, fd=new FormData(form);
   const btn=form.querySelector("button.primario");
-  if(form.dataset.form==="perfil"){
-    escribir(()=>st.db.collection("config").doc("perfil").set({
-      nombre:String(fd.get("nombre")||"").trim(), empresa:String(fd.get("empresa")||"").trim(),
-      tel:String(fd.get("tel")||"").trim(), web:String(fd.get("web")||"").trim(), ts:Date.now(),
-    }).then(render), btn);
-  }else if(form.dataset.form==="estado"){
+  if(form.dataset.form==="estado"){
     escribir(()=>st.db.collection("cuentas_meta").doc(id).set({
       estado:fd.get("estado"), f_volver:fd.get("f_volver")||null, nota:fd.get("nota")||"",
       por:st.vendedor, por_id:st.userId, f:hoyISO(), ts:Date.now(),
@@ -842,7 +730,7 @@ async function exportarCSV(btn){
 /* ================= base local (archivo abierto directo, sin claude.ai) ================= */
 function crearBaseLocal(){
   const CLAVE="recorrida_db";
-  let datos={actividades:{},cuentas_meta:{},contactos_meta:{},config:{}};
+  let datos={actividades:{},cuentas_meta:{},contactos_meta:{}};
   try{ const g=localStorage.getItem(CLAVE); if(g) datos=Object.assign(datos,JSON.parse(g)); }catch(_){}
   const oyentes=[];
   function guardar(){ try{ localStorage.setItem(CLAVE,JSON.stringify(datos)); }catch(_){} }
@@ -882,10 +770,6 @@ function suscribir(db){
   db.collection("contactos_meta").onSnapshot(s=>{
     const m={}; for(const d of s.docs) m[d.id]=d.data();
     st.conMeta=m; scheduleRender();
-  }, e=>console.error(e));
-  db.collection("config").onSnapshot(s=>{
-    for(const d of s.docs) if(d.id==="perfil") st.perfil=d.data();
-    scheduleRender();
   }, e=>console.error(e));
 }
 function conectar(){

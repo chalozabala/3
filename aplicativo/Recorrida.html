@@ -202,11 +202,11 @@ const TIPOS_ACT = ["llamada","email","whatsapp","linkedin","visita","degustació
 /* ================= estado vivo ================= */
 const st = {
   db:null, dbListo:false, soloLectura:false, sinBase:false,
-  userId:null, meta:{}, conMeta:{}, acts:[],
+  userId:null, meta:{}, conMeta:{}, acts:[], mcp:null, sync:{ultimo:0, corriendo:false},
   vendedor:"", pendiente:false, canal:"mail", soloNuevas:true, nCamp:30, variante:"A",
   filtros:{ qCuentas:"", fCuentas:"trabajar", oCuentas:"az", nCuentas:60, qCon:"", areaCon:"todas", nCon:80, nAct:60 },
 };
-try{ st.vendedor = localStorage.getItem("vendedor") || ""; }catch(_){}
+try{ st.vendedor = localStorage.getItem("vendedor") || ""; st.sync.ultimo = +(localStorage.getItem("sync_gmail")||0); }catch(_){}
 
 /* ================= utilidades ================= */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -574,8 +574,9 @@ function vistaCampana(){
       <option value="linkedin" ${canal==="linkedin"?"selected":""}>💼 LinkedIn (${pend.linkedin.length})</option>
     </select>
     <label class="campo" style="display:flex;align-items:center;gap:6px;font-size:13px"><input type="checkbox" id="solo-nuevas" ${st.soloNuevas?"checked":""} style="width:auto"> solo cuentas nunca contactadas</label>
+    ${st.mcp?`<button data-action="sync-gmail">🔄 Sincronizar con Gmail</button>`:""}
   </div>
-  <div class="sub" style="margin-bottom:12px">Registro de la campaña de contacto inicial. Los mensajes se preparan y envían por fuera (Gmail); acá solo se deja asentado: <b>✓ Enviado</b> registra la actividad con seguimiento a 7 días, <b>Omitir</b> saca la cuenta de la lista. ${enviadosCampana(canal)} enviados por este canal.</div>`;
+  <div class="sub" style="margin-bottom:12px">Registro de la campaña de contacto inicial. Los mensajes se preparan y envían por fuera (Gmail); acá solo se deja asentado: <b>✓ Enviado</b> registra la actividad con seguimiento a 7 días, <b>Omitir</b> saca la cuenta de la lista. ${enviadosCampana(canal)} enviados por este canal.${st.mcp?` Conectado a Gmail: al sincronizar, los mails que salieron de comercial@ se registran solos${st.sync.ultimo?` (última vez ${fechaCorta(new Date(st.sync.ultimo).toISOString().slice(0,10))})`:""}.`:""}</div>`;
 
   h+=`<div class="lista">`;
   for(const e of lista.slice(0,st.nCamp)){
@@ -612,6 +613,78 @@ function registrarEnvioCampana(e){
     estado:"abierta", por:st.vendedor, por_id:st.userId, f:hoyISO(), ts:Date.now(),
   });
 }
+/* ================= sincronización con Gmail (conector del que mira la página) ================= */
+async function sincronizarGmail(btn, silencioso){
+  if(!st.mcp || !st.db || st.sync.corriendo) return;
+  st.sync.corriendo = true;
+  if(btn){ btn.disabled=true; btn.textContent="Sincronizando…"; }
+  let detectados = 0;
+  try{
+    const conEmail = new Set(st.acts.filter(a=>a.tipo==="email").map(a=>a.emp));
+    const mapa = new Map();
+    for(const e of D.empresas){
+      if(e.excluida || CERRADOS.has(estadoDe(e)) || conEmail.has(e.id)) continue;
+      const dest = destinoCanal(e, "mail");
+      if(dest && !mapa.has(dest.toLowerCase())) mapa.set(dest.toLowerCase(), e);
+    }
+    let token = "", paginas = 0;
+    while(paginas < 5){
+      const input = { query: "in:sent newer_than:60d", pageSize: 50, view: "THREAD_VIEW_METADATA_ONLY" };
+      if(token) input.pageToken = token;
+      const res = await st.mcp.callTool("Gmail", "search_threads", input, { cache: false });
+      const pl = (res && res.payload) || {};
+      const hilos = pl.threads || [];
+      for(const h of hilos) for(const m of (h.messages || [])){
+        if(!((m.labelIds || []).includes("SENT"))) continue;
+        for(const to of (m.toRecipients || [])){
+          const e = mapa.get(String(to).toLowerCase());
+          if(!e) continue;
+          mapa.delete(String(to).toLowerCase());
+          const c = contactoCanal(e, "mail");
+          const f = String(m.date || "").slice(0, 10) || hoyISO();
+          await st.db.collection("actividades").doc(nuevoId("a")).set({
+            emp: e.id, con: c ? c.id : null, tipo: "email", campana: true, auto: true,
+            resumen: "Mail enviado desde Gmail (detectado automáticamente)",
+            proximo: "seguimiento si no responde", f_proximo: sumarDias(f, 7),
+            estado: "abierta", por: st.vendedor || "Gmail", por_id: st.userId, f: f, ts: Date.now(),
+          });
+          detectados++;
+        }
+      }
+      token = pl.nextPageToken || ""; paginas++;
+      if(!token || !hilos.length) break;
+    }
+    st.sync.ultimo = Date.now();
+    try{ localStorage.setItem("sync_gmail", String(st.sync.ultimo)); }catch(_){}
+    render();
+    if(detectados) alertaTemporal("Sincronizado con Gmail: " + detectados + (detectados===1 ? " envío nuevo registrado." : " envíos nuevos registrados."), "ok");
+    else if(!silencioso) alertaTemporal("Sincronizado con Gmail: sin envíos nuevos para registrar.", "ok");
+  }catch(err){
+    const c = err && err.code;
+    if(!silencioso){
+      if(c === "server_not_connected") alertaTemporal("Gmail no está conectado. Agregalo en claude.ai → Configuración → Conectores y volvé a intentar.");
+      else if(c === "needs_reauth") alertaTemporal("Hay que reconectar Gmail: claude.ai → Configuración → Conectores → Gmail.");
+      else if(c === "not_in_manifest") alertaTemporal("No autorizaste Gmail para esta página. Tocá Sincronizar de nuevo y aceptá el permiso.");
+      else if(c === "selection_required") alertaTemporal("Tenés más de un conector Gmail: elegí uno cuando la página lo pregunte y reintentá.");
+      else alertaTemporal("No se pudo sincronizar con Gmail" + (c ? " (" + c + ")" : "") + ". Probá de nuevo en un rato.");
+    }
+    console.error(err);
+  }finally{
+    st.sync.corriendo = false;
+    if(btn){ btn.disabled=false; btn.textContent="🔄 Sincronizar con Gmail"; }
+  }
+}
+function autoSyncCampana(){
+  if(!st.mcp || st.sync.corriendo) return;
+  if(Date.now() - st.sync.ultimo < 10*60*1000) return;
+  window.claude.use("permissions").then(perm=>{
+    if(!perm) return;
+    Promise.resolve(perm.state("mcp:Gmail")).then(estado=>{
+      if(estado === "granted") sincronizarGmail(null, true);
+    }).catch(()=>{});
+  }).catch(()=>{});
+}
+
 /* ================= router ================= */
 function ruta(){ return location.hash.replace(/^#\/?/,"") || "hoy"; }
 function render(){
@@ -623,7 +696,7 @@ function render(){
   if(r[0]==="cuenta"&&r[1]) vista.innerHTML=vistaCuenta(r[1]);
   else if(r[0]==="cuentas") vista.innerHTML=vistaCuentas();
   else if(r[0]==="contactos") vista.innerHTML=vistaContactos();
-  else if(r[0]==="campana") vista.innerHTML=vistaCampana();
+  else if(r[0]==="campana"){ vista.innerHTML=vistaCampana(); autoSyncCampana(); }
   else if(r[0]==="actividad") vista.innerHTML=vistaActividad();
   else vista.innerHTML=vistaHoy();
 }
@@ -648,9 +721,9 @@ async function escribir(fn, btn){
   }
   finally{ if(btn){ btn.disabled=false; } }
 }
-function alertaTemporal(msg){
-  const div=document.createElement("div"); div.className="aviso critico"; div.textContent=msg;
-  $("#avisos").appendChild(div); setTimeout(()=>div.remove(),6000);
+function alertaTemporal(msg, tipo){
+  const div=document.createElement("div"); div.className=tipo==="ok"?"aviso":"aviso critico"; div.textContent=msg;
+  $("#avisos").appendChild(div); setTimeout(()=>div.remove(),7000);
 }
 
 document.addEventListener("click", ev=>{
@@ -667,6 +740,7 @@ document.addEventListener("click", ev=>{
   }
   else if(acc==="exportar"){ exportarCSV(b); }
   else if(acc==="mas-camp"){ st.nCamp+=40; render(); }
+  else if(acc==="sync-gmail"){ sincronizarGmail(b, false); }
   else if(acc==="camp-enviado"&&st.db){ const e=EMP.get(b.dataset.emp); if(e) escribir(()=>registrarEnvioCampana(e).then(render), b); }
   else if(acc==="camp-omitir"&&st.db){
     const e=EMP.get(b.dataset.emp); if(!e) return;
@@ -790,6 +864,7 @@ function conectar(){
     st.db=db;
     suscribir(db);
   });
+  window.claude.use("mcp").then(m=>{ st.mcp=m; if(m) scheduleRender(); });
   window.claude.use("user").then(async u=>{
     if(!u) return;
     try{

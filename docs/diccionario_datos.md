@@ -57,3 +57,12 @@ Una fila por interacción. Es la fuente de verdad del pipeline vivo; la fila de 
 4. Identidad a confirmar: SMP, IRT, Mercator, Selecta, ABC Comex, rava, TENSAR, DANES, FIUME, EXPRESS CORP, CAI, ACA Venado. (PECAM y DYSCON resueltos: son clientes actuales.)
 5. `Victoria Rios Ordoñez` (Unilever) no es RRHH (corregido en bd_contactos).
 6. `Matías Fernández` (compras Electrolux) podría ser de Curitiba (BR): verificar.
+
+## Reset de pipeline (24-09-2026)
+
+Antes de lanzar la campaña se pusieron en 0 los campos de seguimiento heredados
+de la hoja original (`ESTADO_PIPELINE`, `CONTACTADO`, `RESPUESTA`,
+`FECHA_ULT_CONTACTO`, `FECHA_VOLVER_CONTACTAR`), preservando la marca
+`CLIENTE ACTUAL`. El estado previo quedó archivado en
+`data/fuentes/pipeline_previo_20260924.csv`. El seguimiento vivo desde esa
+fecha es la base compartida de la app (actividades / cuentas_meta).

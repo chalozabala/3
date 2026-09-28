@@ -607,6 +607,7 @@ function registrarEnvioCampana(e){
 /* ================= sincronización con Gmail (conector del que mira la página) ================= */
 async function sincronizarGmail(btn, silencioso){
   if(!st.mcp || !st.db || st.sync.corriendo) return;
+  if(!st.dbListo) return; // sin la bitácora cargada no se puede deduplicar
   st.sync.corriendo = true;
   if(btn){ btn.disabled=true; btn.textContent="Sincronizando…"; }
   let detectados = 0;
@@ -631,9 +632,10 @@ async function sincronizarGmail(btn, silencioso){
           const e = mapa.get(String(to).toLowerCase());
           if(!e) continue;
           mapa.delete(String(to).toLowerCase());
+          if(st.acts.some(a=>a.tipo==="email" && a.emp===e.id)) continue; // pudo llegar por snapshot durante el fetch
           const c = contactoCanal(e, "mail");
           const f = String(m.date || "").slice(0, 10) || hoyISO();
-          await st.db.collection("actividades").doc(nuevoId("a")).set({
+          await st.db.collection("actividades").doc("auto-" + e.id.toLowerCase()).set({
             emp: e.id, con: c ? c.id : null, tipo: "email", campana: true, auto: true,
             resumen: "Mail enviado desde Gmail (detectado automáticamente)",
             proximo: "seguimiento si no responde", f_proximo: sumarDias(f, 7),
@@ -666,7 +668,7 @@ async function sincronizarGmail(btn, silencioso){
   }
 }
 function autoSyncCampana(){
-  if(!st.mcp || st.sync.corriendo) return;
+  if(!st.mcp || !st.dbListo || st.sync.corriendo) return;
   if(Date.now() - st.sync.ultimo < 10*60*1000) return;
   window.claude.use("permissions").then(perm=>{
     if(!perm) return;

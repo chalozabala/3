@@ -34,9 +34,12 @@ Policlínico Unión. WhatsApp fuera de esta primera instancia.
 - Ritmo: 15–25 mails/día (10/día la primera semana si la casilla estuvo
   inactiva), chips ✓ verificados primero.
 - **Nada se envía sin revisión humana.** LinkedIn siempre manual desde la
-  cuenta propia. Cada envío se registra con "✓ Enviado" (crea la actividad con
-  seguimiento a 7 días) — o, si Claude prepara borradores en Gmail, registrar
-  el envío en la base al confirmarse.
+  cuenta propia. Cada envío se registra con "✓ Enviado" — o, si Claude prepara
+  borradores en Gmail, registrar el envío en la base al confirmarse.
+- **Ritmo de seguimiento (definido 01-10-2026):** contacto frío que nunca
+  respondió → re-contacto a los **30 días** del primer mail. El que respondió
+  algo (aunque sea un acuse con derivación) → seguimiento **cercano** (2 a 5
+  días), gestionado a mano según el caso.
 
 ## Tareas típicas para Claude
 

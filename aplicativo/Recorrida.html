@@ -609,7 +609,7 @@ function registrarEnvioCampana(e){
   return st.db.collection("actividades").doc(nuevoId("a")).set({
     emp:e.id, con:c?c.id:null, tipo, campana:true,
     resumen:"Contacto inicial (campaña) por "+canal+" a "+quien,
-    proximo:"seguimiento si no responde", f_proximo:sumarDias(hoyISO(),7),
+    proximo:"seguimiento si no responde", f_proximo:sumarDias(hoyISO(),30),
     estado:"abierta", por:st.vendedor, por_id:st.userId, f:hoyISO(), ts:Date.now(),
   });
 }
@@ -647,7 +647,7 @@ async function sincronizarGmail(btn, silencioso){
           await st.db.collection("actividades").doc("auto-" + e.id.toLowerCase()).set({
             emp: e.id, con: c ? c.id : null, tipo: "email", campana: true, auto: true,
             resumen: "Mail enviado desde Gmail (detectado automáticamente)",
-            proximo: "seguimiento si no responde", f_proximo: sumarDias(f, 7),
+            proximo: "seguimiento si no responde", f_proximo: sumarDias(f, 30),
             estado: "abierta", por: st.vendedor || "Gmail", por_id: st.userId, f: f, ts: Date.now(),
           });
           detectados++;
@@ -682,7 +682,9 @@ function autoSyncCampana(){
   window.claude.use("permissions").then(perm=>{
     if(!perm) return;
     Promise.resolve(perm.state("mcp:Gmail")).then(estado=>{
-      if(estado === "granted") sincronizarGmail(null, true);
+      // 15s de espera: da tiempo a que el snapshot de la bitácora se refresque
+      // tras reabrir la app, antes de deduplicar contra st.acts
+      if(estado === "granted") setTimeout(()=>sincronizarGmail(null, true), 15000);
     }).catch(()=>{});
   }).catch(()=>{});
 }
